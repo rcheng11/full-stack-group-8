@@ -1,0 +1,25 @@
+{
+  "name": "word-verse",
+  "version": "1.0.0",
+  "description": "Language Vocab Card Collection (Kind of like Quizlet Clone)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcheng11/full-stack-group-8.git"
+  },
+  "author": "Ron Cheng, Harvey Picar, Denny Zhang, Lee Muita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcheng11/full-stack-group-8/issues"
+  },
+  "homepage": "https://github.com/rcheng11/full-stack-group-8#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
