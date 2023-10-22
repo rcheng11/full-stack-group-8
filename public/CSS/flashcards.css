@@ -1,0 +1,120 @@
+/* Media Query for Mobile Devices */ 
+@media (max-width: 480px) { 
+    html { 
+        font-size: 11px; 
+    } 
+} 
+  
+/* Media Query for low resolution  Tablets, Ipads */ 
+@media (min-width: 481px) and (max-width: 767px) { 
+    html { 
+        font-size: 12px;
+    } 
+} 
+  
+/* Media Query for Tablets Ipads portrait mode */ 
+@media (min-width: 768px) and (max-width: 1024px){ 
+    html { 
+        font-size: 14px;
+    } 
+} 
+  
+/* Media Query for Laptops and Desktops */ 
+@media (min-width: 1025px) and (max-width: 1280px){ 
+    html { 
+        font-size: 16px;
+    } 
+} 
+  
+/* Media Query for Large screens */ 
+@media (min-width: 1281px) { 
+    html { 
+        font-size: 20px;
+    } 
+} 
+
+.main-body{
+    background-color: white;
+}
+
+.flashcard-container{
+    width: 30rem;
+    height: 24rem;
+    position: relative;
+}
+.flashcard-list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flashcard{
+    width: 15rem;
+    height: 20rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+.flashcard-contents{
+    font-size: 1.5rem;
+    font-family: sans-serif;
+}
+.flashcard-display{
+    width: 30rem;
+    height: 24rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hidden{
+    display: none;
+}
+.flashcard-button-display{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    pointer-events: none;
+}
+.flashcard-button{
+    padding: 0.5rem;
+}
+.flashcard-button-prev{
+    position: absolute;
+    align-self: start;
+    pointer-events: auto;
+}
+.flashcard-button-next{
+    position: absolute;
+    align-self: end;
+    pointer-events: auto;
+}
+
+/* STYLES */
+
+/* Flashcard Styles */
+.flashcard-style-normal{
+    background-color: white;
+}
+/* Flashcard Display Styles */
+.flashcard-display-style-wood{
+    box-shadow: inset 0 0 10px #292202;
+    background-image: url("https://images.unsplash.com/photo-1506968430777-bf7784a87f23?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29vZCUyMHRhYmxlfGVufDB8fDB8fHww");
+}
+.flashcard-display-style-normal{
+    box-shadow: inset 0 0 10px #a0a0a0;
+    background-color: white;
+}
+.flashcard-display-style-green{
+    box-shadow: inset 0 0 10px #083c32;
+    background-color: rgb(146, 193, 124);
+}
+/* Flashcard Button Styles */
