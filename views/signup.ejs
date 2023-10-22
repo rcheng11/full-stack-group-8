@@ -2,21 +2,46 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Signup Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="../CSS/signup.css">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+        <div class="formWrapper">
+            <div class="formContainer">
+                <h1>Sign Up</h1>
+                <form id='signupForm' action="process_signup.php" method="POST">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
+                            <br>
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <br>
+                            
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                            <br>
         
-        <script src="" async defer></script>
+                            <label for="school">School:</label>
+                            <input type="text" id="school" name="school">
+                            <br>
+                            
+                            <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+        <script src="signup.js" async defer></script>
     </body>
 </html>

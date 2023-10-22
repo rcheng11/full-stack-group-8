@@ -1,0 +1,28 @@
+Html, body{
+	height:100%;
+    margin:0px;
+    padding:0px;
+}
+.formWrapper{
+    display:table;
+    height:100%;
+    margin: 0 auto;
+}
+.formContainer{
+    display:table-cell;
+    vertical-align:middle; 
+    text-align: center; 
+}
+.formContainer #signupForm{
+    background:#ddd;
+    border:1px solid #eee;
+    padding:20px; 
+    width:400px;
+}
+
+.formContainer #loginForm{
+    background:#ddd;
+    border:1px solid #eee;
+    padding:20px; 
+    width:400px;
+}
