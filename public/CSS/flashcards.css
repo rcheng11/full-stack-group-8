@@ -72,9 +72,6 @@
     align-items: center;
     overflow: hidden;
 }
-.hidden{
-    display: none;
-}
 .flashcard-button-display{
     width: 100%;
     height: 100%;
@@ -97,6 +94,16 @@
     position: absolute;
     align-self: end;
     pointer-events: auto;
+}
+.flashcard-back{
+    transform: rotateY(-180deg)
+}
+/* STATES */
+.hidden{
+    display: none;
+}
+.in-deck{
+    display: none;
 }
 
 /* STYLES */

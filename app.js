@@ -1,9 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose")
 
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+
+mongoose.connect("mongodb+srv://person:person1234@cluster0.ls5nm.mongodb.net/WordVerse",{ useUnifiedTopology: true, useNewUrlParser: true })
 
 app.use(bodyParser.urlencoded({extended:true}))
 
