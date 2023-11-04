@@ -6,8 +6,6 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public")); 
 
-mongoose.connect("mongodb+srv://person:person1234@cluster0.ls5nm.mongodb.net/WordVerse",{ useUnifiedTopology: true, useNewUrlParser: true })
-
 app.use(bodyParser.urlencoded({extended:true}))
 
 // homepage
