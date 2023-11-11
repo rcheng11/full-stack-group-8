@@ -28,3 +28,35 @@ A collaborative flashcard app with engaging features such as creating a personal
 - Final Version by Dec 5th
     - Fix bugs, run thorough testing
     - Improve presentation by adding different card styles and borders.
+
+#### TODO
+Learn flexbox
+
+User profile page (Lee)
+    Friends subpage
+        list of friends (maybe how many cards)
+    Deck viewing subpage
+        way of making/viewing collections/stacks within the deck according to tag
+    edit interests
+        list of possible interests
+
+
+Deck creation page (Denny)
+    essentially a form(?)
+        flashcard type
+        tags (comma-separated )
+        send to (your deck or friend deck)
+    added/removed popup
+
+Find Users page (Picar)
+    same Year
+    Similar interests
+    major
+
+Sign up page: (Lee)
+    Username:
+    school email
+    password
+    interests
+    major (allowing for n/a)
+    year (allowing for n/a)
