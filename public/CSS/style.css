@@ -115,3 +115,10 @@ body {
 .register-link p a:hover {
     text-decoration: underline;
 }
+
+.error{
+    background-color: rgba(255, 145, 145, 0.7);
+    color: rgb(76, 8, 8);
+    text-align: center;
+    padding: 5px;
+}
