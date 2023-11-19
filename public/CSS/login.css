@@ -12,9 +12,12 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('../../wordverse_logo.jpeg') no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: url('/images/wordverse_logo.png') no-repeat, linear-gradient(rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.5));
+    background-size: contain, cover;
+    background-position: center, center;
+    margin: 0;
+    overflow: hidden;
+    border: 30px solid rgba(173, 216, 230, 0.4);
 }
 
 .wrapper {
