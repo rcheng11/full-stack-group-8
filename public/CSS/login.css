@@ -1,3 +1,8 @@
+/*
+  Initial design for the login box was inspired by Codehal:
+  https://www.youtube.com/watch?v=hlwlM4a5rxg&t=309s
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
@@ -71,7 +76,7 @@ body {
     margin-left: auto;
 }
 
-.login:hover, .signup:hover {
+.signup:hover {
     transform: scale(1.1);
     border-width: 4px;
 }
@@ -153,24 +158,24 @@ body {
     font-size: 20px;
 }
 
-.wrapper .remember-forgot {
+.wrapper .remember-box {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
     margin: -15px 0 15px;
 }
 
-.remember-forgot label input {
+.remember-box label input {
     accent-color: white;
     margin-right: 3px;
 }
 
-.remember-forgot a {
+.remember-box a {
     color: white;
     text-decoration: none;
 }
 
-.remember-forgot a:hover {
+.remember-box a:hover {
     text-decoration: underline;
 }
 
@@ -188,19 +193,19 @@ body {
     font-weight: 600;
 }
 
-.wrapper .register-link {
+.wrapper .register {
     font-size: 14px;
     text-align: center;
     margin: 20px 0 15px;
 }
 
-.register-link p a {
+.register p a {
     color: white;
     text-decoration: none;
     font-weight: 600;
 }
 
-.register-link p a:hover {
+.register p a:hover {
     text-decoration: underline;
 }
 

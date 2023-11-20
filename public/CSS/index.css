@@ -1,36 +1,41 @@
 body {
     font-family: Arial, sans-serif;
     font-size: 20px;
-    background: url('/images/background1.jpg') center/cover;
+    background: url('/images/homepage.jpg') center/cover;
     margin: 0px;
-  }
+}
   
-  .navbar {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.navbar:hover {
     background-color: white;
-  }
+}
   
-  .navbar a {
+.navbar a {
     text-decoration: none;
     color: black;
     margin: 0 10px;
     padding: 5px 10px;
     transition: color 0.3s;
-  }
+}
   
-  .navbar a:hover {
+.navbar a:hover {
     color: lightskyblue;
-  }
+}
 
-  .navbar-text {
+.navbar-text {
     font-size: 1.5em;
     transform: scale(1.1);
-  }
+}
 
-  .login, .signup {
+.login, .signup {
     display: inline-block;
     padding: 10px;
     margin: 10px 0;
@@ -45,25 +50,25 @@ body {
     border-width: 4px;
 }
   
-  .container {
+.container {
     text-align: center;
     margin-top: 50px;
-  }
+}
   
-  .logo-link {
+.logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     border-radius: 50%;
     overflow: hidden;
     transition: transform 0.3s, border-radius 0.1s;
-  }
+}
   
-  .logo-link:hover {
+.logo-link:hover {
     transform: scale(1.1);
-  }
+}
   
-  .logo {
+.logo {
     width: 60px;
     height: 60px;
     margin: 10px auto;
@@ -71,9 +76,9 @@ body {
     background-size: cover;
     transition: transform 0.3s;
     border-radius: 50%;
-  }
+}
 
-  .large-logo {
+.large-logo {
     width: 400px;
     height: 370px;
     margin: 20px auto;
@@ -81,18 +86,18 @@ body {
     background-size: cover;
     transition: transform 0.3s ease 0s;
     border-radius: 50%;
-  }
+}
 
-  .logo:hover {
+.logo:hover {
     transform: scale(1.1);
-  }
+}
 
-  .large-logo:hover {
+.large-logo:hover {
     transform: scale(1.1);
-  }
+}
   
-  .welcome-text {
+.welcome-text {
     font-size: 6em;
     margin-bottom: 20px;
-  }
+}
   
