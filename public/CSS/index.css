@@ -100,4 +100,22 @@ body {
     font-size: 6em;
     margin-bottom: 20px;
 }
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.1);
+}
+
+.logo-link.clicked {
+    transform: scale(1.1);
+}
   
