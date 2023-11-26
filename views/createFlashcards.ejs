@@ -15,15 +15,14 @@
         <%- include('partials/dashboard/dashboard', {props: props}) %>
 
         <label for="cardType">Choose a card type:</label>
-        <select name="cardType" id="carType">
+        <select name="cardType" id="cardType">
             <option value="frontBack">Front/Back</option>
         </select>
         <div id="card-create">
-
+            
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="" async defer></script>
+        <%- include('partials/imports/jquery', {options: ["ui"]}) %>
         <%- include('partials/dashboard/dashboardJS', {props: props}) %>
     </body>
 </html>

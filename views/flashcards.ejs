@@ -73,8 +73,7 @@
           
         
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+        <%- include('partials/imports/jquery', {options: ["ui"]}) %>
         <script src="../JS/flashcards.js" async defer></script>
         <%- include('partials/dashboard/dashboardJS', {props: props}) %>
     </body>
