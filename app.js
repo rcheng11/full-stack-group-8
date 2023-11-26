@@ -7,7 +7,7 @@ const MongoStore = require("connect-mongo")
 
 const app = express();
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use(express.static("/public"));
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname + "/public"));
@@ -125,7 +125,7 @@ app.get("/profile", function(req, res){
           school: user.userData.school,
           flashcards: user.flashcards
         }
-        res.render("flashcards.ejs", props=props)
+        res.render("dashboard.ejs", props=props)
       }
   })
   .catch(err => {

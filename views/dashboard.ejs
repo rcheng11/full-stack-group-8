@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/CSS/dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="/images/wordverse_logo.png" type="image/x-icon">
 </head>
@@ -19,6 +19,9 @@
                     <i class='bx bxs-x-circle'></i>
                 </div>
             </div>
+            <div class="welcome-prompt">
+                Welcome, <b>&nbsp;<%= props.username %></b>!
+            </div>
             <div class="sidebar-options">
                 <a href="#">
                     <i class='bx bxs-dashboard'></i>
@@ -32,15 +35,18 @@
                     <i class='bx bxs-folder-open' ></i>
                     <p>Study Sets</p>
                 </a>
-                <a href="/">
-                    <i class='bx bx-log-out' ></i>
-                    <p>Logout</p>
-                </a>
+                <form method="POST" action="/logout">
+                    <button type="submit" class="form-wrap-btn">
+                        <i class='bx bx-log-out' ></i>
+                        <p>Logout</p>
+                    </button>
+                </form>
             </div>
         </aside>
         <a href="/profile" class="profile">Profile</a>
     </div>
-    
-    <script src="dashboard.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/JS/dashboard.js" async defer></script>
 </body>
 </html>

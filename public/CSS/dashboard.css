@@ -57,59 +57,79 @@ body {
     font-family: 'Poppins', sans-serif;
   }
   
-  .container {
-    display: flex;
-  }
-  
-  #sidebar {
-    height: 100vh;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-  }
-  
-  #sidebar.show {
-    width: 250px;
-  }
-  
-  .toggle {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1a1a1a;
-  }
-  
-  .logo img {
-    width: 50px;
-    height: auto;
-  }
-  
-  .sidebar-options {
-    padding: 15px;
-  }
-  
-  .sidebar-options a {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: #818181;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-  
-  .sidebar-options a:hover {
-    color: #f1f1f1;
-  }
-  
-  .sidebar-options i {
-    margin-right: 10px;
-  }
-  
-  .exit {
-    cursor: pointer;
-  }
+.container {
+  display: flex;
+}
+
+#sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.toggle {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+}
+
+.sidebar-options {
+  padding: 15px;
+}
+
+.sidebar-options a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #818181;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar-options a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar-options i {
+  margin-right: 10px;
+}
+
+.exit {
+  cursor: pointer;
+  color: #818181;
+}
+.exit:hover {
+  color: rgb(182, 21, 21);
+}
+.form-wrap-btn{
+  background-color: transparent;
+  color: #818181;
+  display: flex;
+  align-items: center;
+  border: none;
+  width: 100%;
+  font-size: 16px;
+}
+.form-wrap-btn:hover{
+  color: #f1f1f1;
+}
+.welcome-prompt{
+  color: #818181;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
