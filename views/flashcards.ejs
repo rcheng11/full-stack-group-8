@@ -17,6 +17,12 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div class="main-body">
+            <div>
+                <p>Welcome <%= props.username %>!</p>
+                <form method="POST" action="/logout">
+                    <input type="submit" value="Click Here to Logout">
+                </form>
+            </div>
             <div class="flashcard-container">
                 <div class="flashcard-display flashcard-display-style-green">
                     <!-- FLASH CARD LIST -->
