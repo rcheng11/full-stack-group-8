@@ -133,3 +133,13 @@ body {
   justify-content: center;
   padding: 10px;
 }
+#dashboard-trigger{
+  background-color: #1a1a1a;
+  color: #818181;
+  border-radius: 20%;
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+#dashboard-trigger:hover{
+  cursor: pointer;
+}

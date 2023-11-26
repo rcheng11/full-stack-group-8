@@ -67,14 +67,15 @@ app.post("/signup", function(req, res){
 
 // log in to an account page
 app.get("/login", function(req, res){
-  props = {
-    loginErr: -1
-  }
+  props = {}
   if (req.query.error == "0"){
-    props.loginErr = 0
+    props.loginErr = "Invalid Password"
   }
   else if (req.query.error == "1"){
-    props.loginErr = 1
+    props.loginErr = "Account not Found."
+  }
+  else if (req.query.error == "2"){
+    props.loginErr = "Please sign in first."
   }
   res.render("login.ejs", props=props)
 })
@@ -125,12 +126,31 @@ app.get("/profile", function(req, res){
           school: user.userData.school,
           flashcards: user.flashcards
         }
-        res.render("dashboard.ejs", props=props)
+        res.render("profile.ejs", props=props)
       }
   })
   .catch(err => {
     res.send("Sorry something went wrong.")
   })
+})
+
+app.get("/create", function(req, res) {
+  // must be logged in to access this route
+  if(!req.session.userId){
+    res.redirect("/login?error=2")
+  }
+  else{
+    User.findOne({_id : req.session.userId}).then(user => {
+      props = {
+        username: user.userData.username,
+        school: user.userData.school
+      }
+      res.render("createFlashcards.ejs", props=props)
+    })
+    .catch(err => {
+      res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+    })
+  }
 })
 
 app.listen(3000,function(){

@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="profile.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" href="/images/wordverse_logo.png" type="image/x-icon">
+    <title>Document</title>
+    <%- include('partials/imports/boxicons') %>
+    <%- include('partials/imports/favicon-default') %>
+    <%- include('partials/dashboard/dashboardCSS', {props: props}) %>
 </head>
 <body>
-    
+    <%- include('partials/dashboard/dashboard', {props: props}) %>
+
+    <h1>Welcome <%= props.username %></h1>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <%- include('partials/dashboard/dashboardJS', {props: props}) %>
 </body>
 </html>

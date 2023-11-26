@@ -1,0 +1,38 @@
+<div class="container">
+    <aside id="sidebar">
+        <div class="toggle">
+            <div class="logo">
+                <img src="/images/wordverse_logo.png" alt="Wordverse Logo">
+            </div>
+            <div class="exit" id="exit-btn">
+                <i class='bx bxs-x-circle'></i>
+            </div>
+        </div>
+        <div class="welcome-prompt">
+            Welcome, <b>&nbsp;<%= props.username %></b>!
+        </div>
+        <div class="sidebar-options">
+            <a href="#">
+                <i class='bx bxs-dashboard'></i>
+                <p>Profile</p>
+            </a>
+            <a href="#">
+                <i class='bx bxs-donate-heart' ></i>
+                <p>Friends</p>
+            </a>
+            <a href="/create">
+                <i class='bx bxs-folder-open' ></i>
+                <p>Add Cards</p>
+            </a>
+            <form method="POST" action="/logout">
+                <button type="submit" class="form-wrap-btn">
+                    <i class='bx bx-log-out' ></i>
+                    <p>Logout</p>
+                </button>
+            </form>
+        </div>
+    </aside>
+    <div id="dashboard-trigger">
+        <i class='bx bx-menu' ></i>
+    </div>
+</div>

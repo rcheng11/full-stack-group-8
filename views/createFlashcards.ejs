@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <%- include('partials/imports/boxicons') %>
+        <%- include('partials/imports/favicon-default') %>
+        <%- include('partials/dashboard/dashboardCSS', {props: props}) %>
+    </head>
+    <body>
+        <%- include('partials/dashboard/dashboard', {props: props}) %>
+
+        <label for="cardType">Choose a card type:</label>
+        <select name="cardType" id="carType">
+            <option value="frontBack">Front/Back</option>
+        </select>
+        <div id="card-create">
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="" async defer></script>
+        <%- include('partials/dashboard/dashboardJS', {props: props}) %>
+    </body>
+</html>
