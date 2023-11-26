@@ -65,8 +65,8 @@
     font-family: sans-serif;
 }
 .flashcard-display{
-    width: 30rem;
-    height: 24rem;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

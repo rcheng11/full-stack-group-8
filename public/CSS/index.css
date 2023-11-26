@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    background: url('/images/homepage.jpg') center/cover;
+    margin: 0px;
+}
+  
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.navbar:hover {
+    background-color: white;
+}
+  
+.navbar a {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+  
+.navbar a:hover {
+    color: lightskyblue;
+}
+
+.navbar-text {
+    font-size: 1.5em;
+    transform: scale(1.1);
+}
+
+.login, .signup {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid lightskyblue;
+    border-radius: 10px;
+    transition: transform 0.3s, border-width 0.3s;
+    margin-left: auto;
+}
+
+.login:hover, .signup:hover {
+    transform: scale(1.1);
+    border-width: 4px;
+}
+  
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+  
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s, border-radius 0.1s;
+}
+  
+.logo-link:hover {
+    transform: scale(1.1);
+}
+  
+.logo {
+    width: 60px;
+    height: 60px;
+    margin: 10px auto;
+    background-image: url('/images/wordverse_logo.png');
+    background-size: cover;
+    transition: transform 0.3s;
+    border-radius: 50%;
+}
+
+.large-logo {
+    width: 400px;
+    height: 370px;
+    margin: 20px auto;
+    background-image: url('/images/wordverse_logo.png');
+    background-size: cover;
+    transition: transform 0.3s ease 0s;
+    border-radius: 50%;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.large-logo:hover {
+    transform: scale(1.1);
+}
+  
+.welcome-text {
+    font-size: 6em;
+    margin-bottom: 20px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.1);
+}
+
+.logo-link.clicked {
+    transform: scale(1.1);
+}
+  

@@ -12,11 +12,12 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('/images/signup_page.jpg') center/cover;
+    background: url('/images/wordverse_logo.png') no-repeat, linear-gradient(rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.5));
     background-size: contain, cover;
     background-position: center, center;
     margin: 0;
     overflow: hidden;
+    border: 30px solid rgba(173, 216, 230, 0.4);
 }
 
 .container {
@@ -60,7 +61,7 @@ body {
     transform: scale(1.1);
 }
 
-.login {
+.signup {
     display: inline-block;
     padding: 10px;
     margin: 10px 0;
@@ -70,7 +71,7 @@ body {
     margin-left: auto;
 }
 
-.login:hover {
+.signup:hover {
     transform: scale(1.1);
     border-width: 4px;
 }
@@ -108,7 +109,7 @@ body {
 */
 .wrapper {
     width: 400px;
-    height: 550px;
+    height: 440px;
     background: transparent;
     border: 2px solid gray;
     backdrop-filter: blur(20px);

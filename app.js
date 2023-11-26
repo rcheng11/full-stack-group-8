@@ -29,23 +29,23 @@ mongoose.connect(connectURL,{ useUnifiedTopology: true, useNewUrlParser: true })
 
 const User = mongoose.model("User", schemas.userSchema)
 
-// homepage
+// Homepage
 app.get("/", function(req, res){
   res.render("index");
 })
 
-// flashcard widget
+// Flashcard widget
 app.get("/flashcards", function(req, res){
   res.render("flashcards.ejs")
 })
 
-// return page to create an account
+// Return page to create an account
 app.get("/signup", function(req, res){
   res.render("signup.ejs")
 })
-// actually create the account and save it to the DB
+// Actually create the account and save it to the DB
 app.post("/signup", function(req, res){
-  // assemble user data
+  // Assemble user data
   user =  new User({
     userData: {
       username: req.body.username,
@@ -61,11 +61,15 @@ app.post("/signup", function(req, res){
   })
 
   user.save().then(savedDoc => {
-    res.send("Successfully created user: " + savedDoc.userData.username + " | <a href='/login'>Login Now.</a>")
+    res.redirect("/dashboard")
+  })
+
+  .catch(err => {
+    res.send("Error creating user: " + err.message)
   })
 })
 
-// log in to an account page
+// log in to an account
 app.get("/login", function(req, res){
   props = {
     loginErr: -1
@@ -85,9 +89,7 @@ app.post("/login", function(req, res){
 
   User.findOne({ "userData.username" : usernameIn}).then(user => {
     if(user.userData.password == passwordIn){
-      // create a user
-      req.session.userId = user._id
-      res.redirect("/profile")
+      res.send("You have logged in. Welcome " + user.userData.username + " from " + user.userData.school)
     }
     else{
       res.redirect("/login?error=0") // bad pass
@@ -100,38 +102,6 @@ app.post("/login", function(req, res){
 
 })
 
-app.post("/logout", function(req, res){
-  req.session.destroy(err => {
-    if(err) {
-      console.log(err)
-      return res.status(500).send("An error occurred trying to log you out.")
-    }
-    else{
-      res.send("Log out successful. <a href='/login'>Return to login page.</a>")
-    }
-  })
-})
-
-app.get("/profile", function(req, res){
-  User.findOne({ _id : req.session.userId }).then(user => {
-    // only return necessary data for flashcards page
-      // not whole user
-      if(!user){
-        res.redirect("/login")
-      }
-      else{
-        props = {
-          username: user.userData.username,
-          school: user.userData.school,
-          flashcards: user.flashcards
-        }
-        res.render("flashcards.ejs", props=props)
-      }
-  })
-  .catch(err => {
-    res.send("Sorry something went wrong.")
-  })
-})
 
 app.listen(3000,function(){
   console.log("Server started on port 3000." + 

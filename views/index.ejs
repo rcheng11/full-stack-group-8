@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <title>Welcome to Wordverse!</title>
+        <link rel="stylesheet" href="CSS/index.css">
+        <link rel="icon" href="/images/wordverse_logo.png" type="image/x-icon">
     </head>
     <body>
-        <h1>Welcome to word verse!</h1>
-        <p>Choose an option below:</p>
-        <a href="/signup">
-            <button>
-                Create an Account
-            </button>
-        </a>
-        <a href="/login">
-            <button>
-                Login
-            </button>
-        </a>
-        <a href="/flashcards">
-            <button>
-                Flashcard Widget
-            </button>
-        </a>
-        
-        <script src="" async defer></script>
+        <div class="navbar">
+            <a href="/" class="logo-link">
+                <div class="logo"></div>
+                <span class="navbar-text">Wordverse</span>
+            </a>
+            <a href="/login" class="login">Log in</a>
+            <a href="/signup" class="signup">Sign Up</a>
+        </div>
+
+        <div class="container">
+            <div class="welcome-text">Welcome to Wordverse!</div>
+            <a href="/flashcards" class="logo-link" id="logo-link">
+                <div class="large-logo"></div>
+            </a>
+        </div>
+        <script src="/JS/index.js"></script>
     </body>
 </html>
