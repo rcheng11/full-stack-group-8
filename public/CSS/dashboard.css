@@ -1,65 +1,53 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
+    box-sizing: border-box;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-}
-
-.container {
-    display: grid;
-    width: 100%;
-    margin: 0 auto;
-    grid-template-columns: 12 rem auto 24 rem;
-}
-
-#sidebar {
-    height: 100vh;
-}
-
-#sidebar .toggle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#sidebar .toggle .logo {
-    display: flex;
-}
-
-#sidebar .toggle .logo img {
-    width: 2rem;
-    height: 2rem;
-}
-
-#sidebar .toggle .exit {
-    padding-right: 1rem;
-    display: none;
-}
-
-#sidebar .sidebar-options {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    box-shadow: grey;
-} */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    background: url('/images/homepage.jpg') center/cover;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
   
 .container {
   display: flex;
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 100%
+}
+
+#dashboard-trigger, #profile-trigger {
+    display: flex;
+    align-items: center;
+}
+
+#welcome-prompt{
+    color: #818181;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 24px;
+  }
 
 #sidebar {
   height: 100vh;
@@ -68,6 +56,11 @@ body {
   background-color: #111;
   overflow-x: hidden;
   display: none;
+}
+
+.navbar-text {
+    color: white;
+    font-size: 24px;
 }
 
 .toggle {
@@ -119,20 +112,14 @@ body {
   border: none;
   width: 100%;
   font-size: 16px;
+  padding: 10px;
 }
 .form-wrap-btn:hover{
   color: #f1f1f1;
 }
-.welcome-prompt{
-  color: #818181;
-  background-color: #1a1a1a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-}
+
 #dashboard-trigger{
-  background-color: #1a1a1a;
+  background-color: black;
   color: #818181;
   border-radius: 20%;
   padding: 0.5rem;
@@ -140,4 +127,52 @@ body {
 }
 #dashboard-trigger:hover{
   cursor: pointer;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.streak, .create, .challenge {
+    background-color: grey;
+    font-size: 32px;
+    width: 60%;
+    padding: 40px;
+    box-sizing: border-box;
+    border-style: inset;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-wrap: wrap;
+}
+
+.bx.bxs-dashboard, .bx.bx-menu {
+    font-size: 48px;
+}
+
+.streak i.bx.bxs-hot.bx-tada {
+    font-size: 100px;
+    color: orange;
+}
+
+.create i.bx.bxs-folder-plus {
+    font-size: 100px;
+    color: lightblue;
+}
+
+.challenge i.bx.bxs-trophy.bx-fade-up {
+    font-size: 100px;
+    color: gold;
+}
+
+.streak:hover, .create:hover, .challenge:hover {
+    transform: scale(1.1);
+    border-width: 4px;
+    color:white
 }

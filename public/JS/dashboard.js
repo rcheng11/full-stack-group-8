@@ -1,8 +1,7 @@
-$("#exit-btn").click(function() {
+$("#exit-btn, #dashboard-trigger").click(function() {
   $("#sidebar").toggle("slide")
 })
 
-$("#dashboard-trigger").click(function() {
-  $("#sidebar").toggle("slide")
-})
-
+function toggleSidebar() {
+    $("#sidebar").toggle("slide");
+}

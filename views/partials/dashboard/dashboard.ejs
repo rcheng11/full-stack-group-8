@@ -1,21 +1,15 @@
 <div class="container">
     <aside id="sidebar">
-        <div class="toggle">
-            <div class="logo">
+        <div class="toggle" id="sidebar-toggle">
+            <div class="logo" onclick="toggleSidebar()">
                 <img src="/images/wordverse_logo.png" alt="Wordverse Logo">
+                <span class="navbar-text">Wordverse</span>
             </div>
             <div class="exit" id="exit-btn">
                 <i class='bx bxs-x-circle'></i>
             </div>
         </div>
-        <div class="welcome-prompt">
-            Welcome, <b>&nbsp;<%= props.username %></b>!
-        </div>
         <div class="sidebar-options">
-            <a href="/profile">
-                <i class='bx bxs-dashboard'></i>
-                <p>Profile</p>
-            </a>
             <a href="/study">
                 <i class='bx bxs-book'></i>
                 <p>Study</p>
@@ -36,7 +30,30 @@
             </form>
         </div>
     </aside>
-    <div id="dashboard-trigger">
-        <i class='bx bx-menu' ></i>
+    </div>
+    <div class="navbar">
+        <div id="dashboard-trigger">
+            <i class='bx bx-menu' ></i>
+        </div>
+        <div id="welcome-prompt">
+            Welcome, <b>&nbsp;<%= props.username %></b>!
+        </div>
+        <div id="profile-trigger">
+            <i class='bx bxs-dashboard'></i>
+        </div>
+    </div>
+    <div class="content">
+        <div class="streak">
+            <h2>Study Streak</h2>
+            <i class='bx bxs-hot bx-tada' ></i>
+        </div>
+        <div class="create">
+            <h2>Create New Set</h2>
+            <i class='bx bxs-folder-plus'></i>
+        </div>
+        <div class="challenge">
+            <h2>Challenge Friends</h2>
+            <i class='bx bxs-trophy bx-fade-up' ></i>
+        </div>
     </div>
 </div>
