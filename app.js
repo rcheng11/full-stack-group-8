@@ -28,6 +28,7 @@ app.use(session({
 mongoose.connect(connectURL,{ useUnifiedTopology: true, useNewUrlParser: true })
 
 const User = mongoose.model("User", schemas.userSchema)
+const Flashcard = mongoose.model("Flashcard", schemas.flashcardSchema)
 
 // homepage
 app.get("/", function(req, res){
@@ -145,7 +146,44 @@ app.get("/create", function(req, res) {
         username: user.userData.username,
         school: user.userData.school
       }
-      res.render("createFlashcards.ejs", props=props)
+      res.render("create.ejs", props=props)
+    })
+    .catch(err => {
+      res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+    })
+  }
+})
+app.post("/create", function(req, res) {
+  flashcard = new Flashcard({
+    content: req.body.fContent,
+    type: req.body.type,
+    owner: req.session.userId,
+    tags: [0]
+
+  })
+  flashcard.save().then(savedCard => {
+    User.findOne({_id : req.session.userId}).then(user => {
+      user.flashcards.push(savedCard._id)
+      user.save().then(
+        res.send(`Card '${savedCard.content.content[0]}' Added Successfully!`)
+      )
+    })
+  })
+  
+})
+
+app.get("/study", function(req, res){
+  // must be logged in to access this route
+  if(!req.session.userId){
+    res.redirect("/login?error=2")
+  }
+  else{
+    User.findOne({_id : req.session.userId}).then(user => {
+      props = {
+        username: user.userData.username,
+        school: user.userData.school
+      }
+      res.render("study.ejs", props=props)
     })
     .catch(err => {
       res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")

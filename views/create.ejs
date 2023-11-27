@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/CSS/create.css">
+        <%- include('partials/imports/boxicons') %>
+        <%- include('partials/imports/favicon-default') %>
+        <%- include('partials/dashboard/dashboardCSS', {props: props}) %>
+    </head>
+    <body>
+        <%- include('partials/dashboard/dashboard', {props: props}) %>
+        <div id="popup-container">
+            <div id="popup">
+                <p id="popup-message"></p>
+            </div>
+        </div>
+        
+        <label for="cardType">Choose a card type:</label>
+        <button id="create-btn-frontBack" class="create-btn">Front/Back</button>
+        <button id="create-btn-hint" class="create-btn">Front/Back/Hint</button>
+        <button id="create-btn-fillIn" class="create-btn">Fill-in</button>
+        <div id="card-create">
+            <div class="card-create-entry" id="create-frontBack">
+                <label for="front">Front</label>
+                <input name="front" type="text" label="front" id="frontBack-front">
+                <label for="back">Back</label>
+                <input name="back" type="text" label="front" id="frontBack-back">
+                <button id="frontBack-submit">Create</button>
+            </div>
+            <div class="card-create-entry" id="create-hint">
+                Hint Flashcards Not Yet Available
+            </div>
+            <div class="card-create-entry" id="create-fillIn">
+                Fill In Not Yet Available
+            </div>
+        </div>
+
+        <%- include('partials/imports/jquery', {options: ["ui"]}) %>
+        <%- include('partials/dashboard/dashboardJS', {props: props}) %>
+        <script src="/JS/create.js" async defer></script>
+    </body>
+</html>
