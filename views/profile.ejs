@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordverse</title>
+    <link rel="stylesheet" href="/CSS/profile.css">
     <%- include('partials/imports/boxicons') %>
     <%- include('partials/imports/favicon-default') %>
-    <%- include('partials/dashboard/dashboardCSS', {props: props}) %>
     <%- include('partials/navbar/navbarCSS', {props: props}) %>
 </head>
 <body>
@@ -14,7 +14,22 @@
             <source src="/images/dashboard.mp4" type="video/mp4">
     </video>
     <%- include('partials/navbar/navbar', {props: props}) %>
-    <%- include('partials/dashboard/dashboard', {props: props}) %>
+    <div class="container">
+        <div class="content">
+            <div class="streak">
+                <h2>Study Streak</h2>
+                <i class='bx bxs-hot bx-tada' ></i>
+            </div>
+            <div class="create">
+                <h2>Create New Set</h2>
+                <i class='bx bxs-folder-plus'></i>
+            </div>
+            <div class="challenge">
+                <h2>Challenge Friends</h2>
+                <i class='bx bxs-trophy bx-fade-up' ></i>
+            </div>
+        </div>
+    </div>
 
     <!-- JS -->
     <%- include('partials/imports/jquery', {options: ["ui"]}) %>
