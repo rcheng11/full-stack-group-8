@@ -8,9 +8,10 @@ function getFormData(selector){
     data = {
         fContent: fContent
     }
-    $(selector).children("input").each(function() {
+    $(selector).find("input").each(function() {
         fContent[$(this).attr("name")] = $(this).val()
     })
+    console.log(fContent)
     return data
 }
 
