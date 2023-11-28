@@ -59,15 +59,15 @@ app.post("/signup", function(req, res){
     userStats: {
         cardsReviewed: 0,
         created: Date.now(),
-        streak: 0,
-        lastLogin: Date.now()
+        streak: 1,
+        lastLogin: Date
     },
     flashcards: [],
     friends: []
   })
 
   user.save().then(savedDoc => {
-    res.send("Successfully created user: " + savedDoc.userData.username + " | <a href='/login'>Login Now.</a>")
+    res.redirect('/login');
   })
 })
 
@@ -104,7 +104,6 @@ app.post("/login", function(req, res){
     console.log(err)
     res.redirect("/login?error=1") // account not found
   })
-
 })
 
 app.post("/logout", function(req, res){
@@ -131,7 +130,7 @@ app.get("/profile", function(req, res){
           username: user.userData.username,
           school: user.userData.school,
           flashcards: user.flashcards,
-          streak: user.userData.streak
+          userStats: user.userStats
         }
         res.render("profile.ejs", props=props)
       }

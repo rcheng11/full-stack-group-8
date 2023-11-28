@@ -33,8 +33,15 @@
     } 
 } 
 
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .main-body{
     background-color: white;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 .flashcard-container{
