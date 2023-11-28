@@ -4,17 +4,13 @@
 // input a string equal to selector
 // check dblib, modeled after fContent for ret data
 function getFormData(selector){
-    fContent = {
-        headers: [],
-        content: []
-    }
+    fContent = {}
     data = {
         fContent: fContent
     }
     console.log($(selector).children("input"))
     $(selector).children("input").each(function() {
-        fContent.headers.push($(this).attr("name"))
-        fContent.content.push($(this).val())
+        fContent[$(this).attr("name")] = $(this).val()
     })
     return data
 }

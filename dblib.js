@@ -9,21 +9,19 @@ const userData = {
 }
 const userStats = {
     cardsReviewed: Number, // general statistic to be shown on website
-    created: Date // date of creation, implemented during user sign up
+    created: Date, // date of creation, implemented during user sign up
+    streak: Number, // keeps track of the number of consecutive log in days
+    lastLogin: Date, // last time the user logged in
 }
 const userSchema = {
     userData: userData, 
     userStats: userStats,
-    flashcards: Array // a list of ids to flashcards
+    flashcards: Array, // a list of ids to flashcards
+    friends: Array // a list of ids to other users
 }
 
-// FLASHCARD
-const fContent = { // more flexible to allow for more customization of cards
-    headers: Array, // e.g ["front", "back"] or ["front", "back", "hint"]
-    content: Array // e.g ["Mitochondria", "Powerhouse"] or ["Mitochondria", "Powerhouse", "You Know"]
-}
 const flashcardSchema = {
-    content: fContent,
+    content: Object,
     type: String, // currently only supporting "basic", but will add "hint" and "fill-in" 
     owner: String, // same as User Id of who created it, only owner can edit
     tags: Array // a list of tags e.g ["Biology", "Anatomy"]

@@ -36,6 +36,7 @@ function animate_fc_exit(flashcard, direction){
 }
 function animate_fc_enter(flashcard, direction){
     $(flashcard).show()
+    $(flashcard).css("transform", "none")
     $(flashcard).css("border-spacing", "0")
     $(flashcard).css("display", "flex")
 
@@ -77,7 +78,7 @@ $(".flashcard-button-prev").click(function() {
     animate_fc_exit(curr_flashcard, "right")
     setTimeout(() => animate_fc_enter(next_flashcard, "left"), 400)
     
-    console.log("next clicked")
+    console.log("prev clicked")
 })
 $(".flashcard-button-next").click(function() {
     curr_flashcard = $(".flashcard-list").find(".shown")
@@ -85,11 +86,13 @@ $(".flashcard-button-next").click(function() {
     animate_fc_exit(curr_flashcard, "left")
     setTimeout(() => animate_fc_enter(next_flashcard, "right"), 400)
 
-    console.log("prev clicked")
+    console.log("next clicked")
+    console.log($(curr_flashcard))
 })
 
 // FLASHCARD FLIP ON CLICK EVENT
 $(".flashcard").click(function() {
+    $(this).css("border-spacing", "0")
     front = $(this).find(".flashcard-front")
     back = $(this).find(".flashcard-back")
 
@@ -108,15 +111,20 @@ $(".flashcard").click(function() {
     }}
 
     on_complete = function(front, back) {
+        // if back is shown
         if( front.hasClass("hidden") ){
-            front.parent().css("transform", "none")
             back.addClass("hidden")
             front.removeClass("hidden")
         }
+        // if front is shown
         else if( back.hasClass("hidden") ){
             back.css("transform", "none")
             front.addClass("hidden")
             back.removeClass("hidden")
+        }
+        // if back shown flip
+        if(front.hasClass("hidden")){
+            front.parent().css("transform", "rotateY(180deg)")
         }
     }
 

@@ -58,9 +58,12 @@ app.post("/signup", function(req, res){
     },
     userStats: {
         cardsReviewed: 0,
-        created: Date.now()
+        created: Date.now(),
+        streak: 0,
+        lastLogin: Date.now()
     },
-    flashcards: []
+    flashcards: [],
+    friends: []
   })
 
   user.save().then(savedDoc => {
@@ -167,8 +170,11 @@ app.post("/create", function(req, res) {
     User.findOne({_id : req.session.userId}).then(user => {
       user.flashcards.push(savedCard._id)
       user.save().then(
-        res.send(`Card '${savedCard.content.content[0]}' Added Successfully!`)
+        res.send(`Card Added Successfully!`)
       )
+      .catch(err => {
+        res.send(`Card could not be saved. Try again later.`)
+      })
     })
   })
   
@@ -185,7 +191,35 @@ app.get("/study", function(req, res){
         username: user.userData.username,
         school: user.userData.school
       }
-      res.render("study.ejs", props=props)
+      flashcardIds = user.flashcards
+      
+      Flashcard.find({"_id" : { $in: flashcardIds}}).then(cards => {
+        props.flashcards = cards
+        res.render("study.ejs", props=props)
+      })
+      .catch(err => {
+        res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+      })
+      
+    })
+    .catch(err => {
+      res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+    })
+  }
+})
+
+app.get("/friends", function(req, res) {
+  // must be logged in to access this route
+  if(!req.session.userId){
+    res.redirect("/login?error=2")
+  }
+  else{
+    User.findOne({_id : req.session.userId}).then(user => {
+      props = {
+        username: user.userData.username,
+        school: user.userData.school
+      }
+      res.render("friends.ejs", props=props)
     })
     .catch(err => {
       res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")

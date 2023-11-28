@@ -6,14 +6,36 @@
     <title>Document</title>
     <%- include('partials/imports/boxicons') %>
     <%- include('partials/imports/favicon-default') %>
+    <%- include('partials/cards/cardCSS') %>
     <%- include('partials/navbar/navbarCSS', {props: props}) %>
 </head>
 <body>
     <%- include('partials/navbar/navbar', {props: props}) %>
 
     <h1>Welcome back <%= props.username %>! Time to study...</h1>
-    <!-- JS -->
+
+    <div class="flashcard-container">
+        <div class="flashcard-display flashcard-display-style-green">
+            <!-- FLASH CARD LIST -->
+            <div class="flashcard-list">
+            <% for( let i = 0; i < props.flashcards.length; i++ ) { %>
+                <% if (props.flashcards[i].type == "frontBack") { %>
+                    <% let isTopCard = i == 0 %>
+                    <%- include('partials/cards/frontBack', {card: props.flashcards[i], topCard: isTopCard}) %>
+                <% } %>
+            <% } %>
+            </div>
+            <!-- BUTTONS -->
+            <div class="flashcard-button-display">
+                <button class="flashcard-button flashcard-button-prev">Prev</button>
+                <button class="flashcard-button flashcard-button-next">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- JS -->
     <%- include('partials/imports/jquery', {options: ["ui"]}) %>
     <%- include('partials/navbar/navbarJS', {props: props}) %>
+    <%- include('partials/cards/cardJS') %>
 </body>
 </html>
