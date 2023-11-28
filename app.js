@@ -130,7 +130,8 @@ app.get("/profile", function(req, res){
         props = {
           username: user.userData.username,
           school: user.userData.school,
-          flashcards: user.flashcards
+          flashcards: user.flashcards,
+          streak: user.userData.streak
         }
         res.render("profile.ejs", props=props)
       }
@@ -230,4 +231,12 @@ app.get("/friends", function(req, res) {
 app.listen(3000,function(){
   console.log("Server started on port 3000." + 
   "Type http://localhost:3000/ into your browser to access the application.");
+})
+app.get("/findFriends", function(req, res){
+  User.find({"userData.username" : { $regex : req.query.name}}).then(users => {
+    props = {
+      users: users
+    }
+    res.send(props)
+  })
 })

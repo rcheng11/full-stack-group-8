@@ -10,6 +10,7 @@
         <%- include('partials/imports/boxicons') %>
         <%- include('partials/imports/favicon-default') %>
         <%- include('partials/navbar/navbarCSS', {props: props}) %>
+        <%- include('partials/cards/cardCSS') %>
     </head>
     <body>
         <%- include('partials/navbar/navbar', {props: props}) %>
@@ -38,9 +39,23 @@
                 Fill In Not Yet Available
             </div>
         </div>
+        <div id="card-preview">
+            <h1>Preview:</h1>
+            <div class="flashcard flashcard-style-normal shown">
+                <div class="flashcard-contents">
+                    <div class="flashcard-front" id="frontBack-exFront">
+                        Front
+                    </div>
+                    <div class="flashcard-back hidden" id="frontBack-exBack">
+                        Back
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <%- include('partials/imports/jquery', {options: ["ui"]}) %>
         <%- include('partials/navbar/navbarJS', {props: props}) %>
+        <%- include('partials/cards/cardJS') %>
         <script src="/JS/create.js" async defer></script>
     </body>
 </html>

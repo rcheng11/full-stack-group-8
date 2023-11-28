@@ -75,19 +75,27 @@ function animate_fc_enter(flashcard, direction){
 $(".flashcard-button-prev").click(function() {
     curr_flashcard = $(".flashcard-list").find(".shown")
     next_flashcard = curr_flashcard.prev()
-    animate_fc_exit(curr_flashcard, "right")
-    setTimeout(() => animate_fc_enter(next_flashcard, "left"), 400)
-    
-    console.log("prev clicked")
+    if(next_flashcard.length > 0){
+        $(".flashcard-button-next").removeAttr("disabled")
+        animate_fc_exit(curr_flashcard, "right")
+        setTimeout(() => animate_fc_enter(next_flashcard, "left"), 400)
+        if(next_flashcard.next().length == 0){
+            $(".flashcard-button-prev").attr("disabled", "true")
+        }
+    }
 })
 $(".flashcard-button-next").click(function() {
     curr_flashcard = $(".flashcard-list").find(".shown")
     next_flashcard = curr_flashcard.next()
-    animate_fc_exit(curr_flashcard, "left")
-    setTimeout(() => animate_fc_enter(next_flashcard, "right"), 400)
-
-    console.log("next clicked")
-    console.log($(curr_flashcard))
+    console.log(next_flashcard)
+    if(next_flashcard.length > 0){
+        $(".flashcard-button-prev").removeAttr("disabled")
+        animate_fc_exit(curr_flashcard, "left")
+        setTimeout(() => animate_fc_enter(next_flashcard, "right"), 400)
+        if(next_flashcard.next().length == 0){
+            $(".flashcard-button-next").attr("disabled", "true")
+        }
+    }
 })
 
 // FLASHCARD FLIP ON CLICK EVENT
@@ -101,7 +109,6 @@ $(".flashcard").click(function() {
         step: function(now, fx) {
         $(fx.elem).css('transform','rotateY('+now+'deg)');
         $(fx.elem).children().hide();
-        console.log(now)
         if(fx.start == now){
             $(fx.elem).children().hide()
         }

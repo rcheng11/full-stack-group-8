@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/CSS/friends.css">
     <%- include('partials/imports/boxicons') %>
     <%- include('partials/imports/favicon-default') %>
     <%- include('partials/navbar/navbarCSS', {props: props}) %>
@@ -11,9 +12,19 @@
 <body>
     <%- include('partials/navbar/navbar', {props: props}) %>
     <h1>Add Friends!</h1>
+    <div class="friend-search">
+        <div class="friend-search-bar">
+            <label for="friend">Type in a username: </label>
+            <input name="friend" type="text" id="friend-search-input">
+            <button id="friend-search-submit">Search</button>
+        </div>
+        <div class="friend-search-target">
+            
+        </div>
+    </div>
     <!-- JS -->
     <%- include('partials/imports/jquery', {options: ["ui"]}) %>
     <%- include('partials/navbar/navbarJS') %>
-    
+    <script src="/JS/friends.js" async defer></script>
 </body>
 </html>

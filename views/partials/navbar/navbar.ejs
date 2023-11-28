@@ -10,6 +10,14 @@
     </div>
     <div class="sidebar-options">
         <% if (props.username) { %>
+            <a href="#">
+                <i class='bx bxs-collection'></i>
+                <p>Edit Collection</p>
+            </a>
+            <a href="/create">
+                <i class='bx bxs-folder-open' ></i>
+                <p>Add Cards</p>
+            </a>
             <a href="/study">
                 <i class='bx bxs-book'></i>
                 <p>Study</p>
@@ -17,10 +25,6 @@
             <a href="/friends">
                 <i class='bx bxs-donate-heart' ></i>
                 <p>Friends</p>
-            </a>
-            <a href="/create">
-                <i class='bx bxs-folder-open' ></i>
-                <p>Add Cards</p>
             </a>
             <form method="POST" action="/logout">
                 <button type="submit" class="form-wrap-btn">

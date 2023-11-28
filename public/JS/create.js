@@ -8,7 +8,6 @@ function getFormData(selector){
     data = {
         fContent: fContent
     }
-    console.log($(selector).children("input"))
     $(selector).children("input").each(function() {
         fContent[$(this).attr("name")] = $(this).val()
     })
@@ -42,12 +41,18 @@ function createCard(selector, type){
     );
 }
 function cardSuccess(message){
+    $("#frontBack-front, #frontBack-back").val("") 
     $("#popup-message").html(message)
     $("#popup-container").show()
     $("#popup-container").delay(1000).hide(0)
 }
 $("#frontBack-submit").click(function() {
     createCard("#create-frontBack", "frontBack")
+})
+$("#frontBack-front, #frontBack-back").on("keypress", function(e) {
+    if(e.which == 13){
+        createCard("#create-frontBack", "frontBack")
+    }
 })
 
 // CREATE HINTS AND FILL INS
@@ -59,4 +64,12 @@ $("#create-btn-hint").click(function() {
 $("#create-btn-fillIn").click(function() {
     $("#card-create").children().hide()
     $("#create-fillIn").show()
+})
+
+// PREVIEW MANAGEMENT
+$("#frontBack-front").on("input", function(){
+    $("#frontBack-exFront").html($("#frontBack-front").val())
+})
+$("#frontBack-back").on("input", function(){
+    $("#frontBack-exBack").html($("#frontBack-back").val())
 })
