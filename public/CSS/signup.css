@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-    font-family: "Poppins", sans-serif;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: 0px;
 }
 
 .supercontainer {
@@ -68,7 +70,7 @@ video {
   https://www.youtube.com/watch?v=hlwlM4a5rxg&t=309s
 */
 .wrapper {
-    width: 400px;
+    width: 450px;
     height: 550px;
     background: transparent;
     border: 2px solid gray;
@@ -98,7 +100,6 @@ video {
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid gray;
     border-radius: 40px;
     font-size: 16px;
     color: white;
