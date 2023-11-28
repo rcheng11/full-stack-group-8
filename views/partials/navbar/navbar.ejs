@@ -1,0 +1,58 @@
+<aside id="sidebar">
+    <div class="toggle" id="sidebar-toggle">
+        <div class="logo" onclick="toggleSidebar()">
+            <img src="/images/wordverse_logo.png" alt="Wordverse Logo">
+            <span class="navbar-text">Wordverse</span>
+        </div>
+        <div class="exit" id="exit-btn">
+            <i class='bx bxs-x-circle'></i>
+        </div>
+    </div>
+    <div class="sidebar-options">
+        <% if (props.username) { %>
+            <a href="/study">
+                <i class='bx bxs-book'></i>
+                <p>Study</p>
+            </a>
+            <a href="#">
+                <i class='bx bxs-donate-heart' ></i>
+                <p>Friends</p>
+            </a>
+            <a href="/create">
+                <i class='bx bxs-folder-open' ></i>
+                <p>Add Cards</p>
+            </a>
+            <form method="POST" action="/logout">
+                <button type="submit" class="form-wrap-btn">
+                    <i class='bx bx-log-out' ></i>
+                    <p>Logout</p>
+                </button>
+            </form>
+        <% } else { %>
+            <a href="/login" class="login">
+                <i class='bx bx-log-in'></i>
+                <p>Log in</p>
+            </a>
+            <a href="/signup" class="signup">
+                <i class='bx bxs-user-circle'></i>
+                <p>Sign up</p>
+            </a>
+        <% } %>
+    </div>
+</aside>
+</div>
+<div class="navbar">
+    <div id="dashboard-trigger">
+        <i class='bx bx-menu' ></i>
+    </div>
+    <div id="welcome-prompt">
+        <% if (props.username) { %>
+            Welcome, <b>&nbsp;<%= props.username %></b>!
+        <% } else { %>
+            Welcome! Please log in or sign up!
+        <% } %>
+    </div>
+    <div id="profile-trigger">
+        <i class='bx bxs-dashboard'></i>
+    </div>
+</div>

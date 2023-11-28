@@ -8,26 +8,21 @@
         <link rel="stylesheet" href="CSS/index.css">
         <%- include('partials/imports/boxicons') %>
         <%- include('partials/imports/favicon-default') %>
+        <%- include('partials/navbar/navbarCSS', {props: props}) %>
     </head>
     <body>
         <!-- <video autoplay muted loop>
             <source src="/images/index.mp4" type="video/mp4">
         </video> -->
-        <div class="navbar">
-            <a href="/" class="logo-link">
-                <div class="logo"></div>
-                <span class="navbar-text">Wordverse</span>
-            </a>
-            <a href="/login" class="login">Log in</a>
-            <a href="/signup" class="signup">Sign Up</a>
-        </div>
-
+        <%- include('partials/navbar/navbar', {props: props}) %>
         <div class="container">
             <div class="welcome-text">Welcome to Wordverse!</div>
             <a href="/flashcards" class="logo-link" id="logo-link">
                 <div class="large-logo"></div>
             </a>
-        </div>
+        </div>=
+        <%- include('partials/imports/jquery', {options: ["ui"]}) %>
+        <%- include('partials/navbar/navbarJS') %>
         <script src="/JS/index.js"></script>
     </body>
 </html>

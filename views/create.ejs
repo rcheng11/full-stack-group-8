@@ -12,7 +12,7 @@
         <%- include('partials/dashboard/dashboardCSS', {props: props}) %>
     </head>
     <body>
-        <%- include('partials/dashboard/dashboard', {props: props}) %>
+        <%- include('partials/navbar/navbar', {props: props}) %>
         <div id="popup-container">
             <div id="popup">
                 <p id="popup-message"></p>
@@ -40,7 +40,7 @@
         </div>
 
         <%- include('partials/imports/jquery', {options: ["ui"]}) %>
-        <%- include('partials/dashboard/dashboardJS', {props: props}) %>
+        <%- include('partials/navbar/navbarJS', {props: props}) %>
         <script src="/JS/create.js" async defer></script>
     </body>
 </html>

@@ -32,7 +32,8 @@ const Flashcard = mongoose.model("Flashcard", schemas.flashcardSchema)
 
 // homepage
 app.get("/", function(req, res){
-  res.render("index");
+  props = {}
+  res.render("index", props=props);
 })
 
 // flashcard widget
@@ -42,7 +43,8 @@ app.get("/flashcards", function(req, res){
 
 // return page to create an account
 app.get("/signup", function(req, res){
-  res.render("signup.ejs")
+  props = {}
+  res.render("signup.ejs", props=props)
 })
 // actually create the account and save it to the DB
 app.post("/signup", function(req, res){
@@ -109,7 +111,7 @@ app.post("/logout", function(req, res){
       return res.status(500).send("An error occurred trying to log you out.")
     }
     else{
-      res.send("Log out successful. <a href='/login'>Return to login page.</a>")
+      res.redirect('/');
     }
   })
 })

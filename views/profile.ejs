@@ -7,15 +7,17 @@
     <%- include('partials/imports/boxicons') %>
     <%- include('partials/imports/favicon-default') %>
     <%- include('partials/dashboard/dashboardCSS', {props: props}) %>
+    <%- include('partials/navbar/navbarCSS', {props: props}) %>
 </head>
 <body>
     <video autoplay muted loop>
             <source src="/images/dashboard.mp4" type="video/mp4">
     </video>
+    <%- include('partials/navbar/navbar', {props: props}) %>
     <%- include('partials/dashboard/dashboard', {props: props}) %>
 
     <!-- JS -->
     <%- include('partials/imports/jquery', {options: ["ui"]}) %>
-    <%- include('partials/dashboard/dashboardJS', {props: props}) %>
+    <%- include('partials/navbar/navbarJS', {props: props}) %>
 </body>
 </html>

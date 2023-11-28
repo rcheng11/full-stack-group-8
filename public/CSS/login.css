@@ -7,7 +7,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
+.super-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,55 +25,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    background-color: transparent;
-    transition: background-color 0.3s;
-}
-
-.navbar:hover {
-    background-color: white;
-}
-  
-.navbar a {
-    text-decoration: none;
-    color: black;
-    margin: 0 10px;
-    padding: 5px 10px;
-    transition: color 0.3s;
-}
-  
-.navbar a:hover {
-    color: lightskyblue;
-}
-
-.navbar-text {
-    font-size: 1.5em;
-    transform: scale(1.1);
-}
-
-.signup {
-    display: inline-block;
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid lightskyblue;
-    border-radius: 10px;
-    transition: transform 0.3s, border-width 0.3s;
-    margin-left: auto;
-}
-
-.signup:hover {
-    transform: scale(1.1);
-    border-width: 4px;
 }
   
 .logo-link {
