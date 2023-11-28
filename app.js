@@ -60,7 +60,7 @@ app.post("/signup", function(req, res){
         cardsReviewed: 0,
         created: Date.now(),
         streak: 1,
-        lastLogin: Date
+        lastLogin: Date.now()
     },
     flashcards: [],
     friends: []
