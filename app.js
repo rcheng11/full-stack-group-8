@@ -60,14 +60,14 @@ app.post("/signup", function(req, res){
         cardsReviewed: 0,
         created: Date.now(),
         streak: 0,
-        lastLogin: Date.now()
+        lastLogin: Date
     },
     flashcards: [],
     friends: []
   })
 
   user.save().then(savedDoc => {
-    res.send("Successfully created user: " + savedDoc.userData.username + " | <a href='/login'>Login Now.</a>")
+    res.redirect('/login');
   })
 })
 
@@ -86,25 +86,41 @@ app.get("/login", function(req, res){
   res.render("login.ejs", props=props)
 })
 // POST route for logging in, handles authentication
-app.post("/login", function(req, res){
-  let usernameIn = req.body.username
-  let passwordIn = req.body.password
+app.post("/login", async function(req, res) {
+  const usernameIn = req.body.username
+  const passwordIn = req.body.password
 
-  User.findOne({ "userData.username" : usernameIn}).then(user => {
-    if(user.userData.password == passwordIn){
-      // create a user
-      req.session.userId = user._id
-      res.redirect("/profile")
-    }
-    else{
-      res.redirect("/login?error=0") // bad pass
-    }
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/login?error=1") // account not found
-  })
+  try {
+    const user = await User.findOne({ "userData.username": usernameIn })
 
+    if (user) {
+      if (user.userData.password === passwordIn) {
+        // Check if the last login was on the previous day
+        const today = new Date().setHours(0, 0, 0, 0)
+        const lastLogin = user.lastLogin ? user.lastLogin.getTime() : 0
+
+        if (lastLogin < today) {
+          // If last login was before today, update streak
+          user.streak = lastLogin === today - 86400000 ? user.streak + 1 : 1
+        }
+
+        user.lastLogin = new Date()
+        await user.save()
+
+        // Create a user session
+        req.session.userId = user._id
+
+        res.redirect("/profile")
+      } else {
+        res.redirect("/login?error=0") // Invalid password
+      }
+    } else {
+      res.redirect("/login?error=1") // Account not found
+    }
+  } catch (err) {
+    console.error(err)
+    res.redirect("/login?error=1") // Account not found or other error
+  }
 })
 
 app.post("/logout", function(req, res){
@@ -130,7 +146,8 @@ app.get("/profile", function(req, res){
         props = {
           username: user.userData.username,
           school: user.userData.school,
-          flashcards: user.flashcards
+          flashcards: user.flashcards,
+          userStats: user.userStats
         }
         res.render("profile.ejs", props=props)
       }
