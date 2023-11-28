@@ -59,7 +59,7 @@ app.post("/signup", function(req, res){
     userStats: {
         cardsReviewed: 0,
         created: Date.now(),
-        streak: 0,
+        streak: 1,
         lastLogin: Date
     },
     flashcards: [],
