@@ -63,7 +63,8 @@ app.post("/signup", function(req, res){
         lastLogin: Date.now()
     },
     flashcards: [],
-    friends: []
+    friends: [],
+    cardRequests: []
   })
 
   user.save().then(savedDoc => {
