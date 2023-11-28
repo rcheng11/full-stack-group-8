@@ -17,7 +17,8 @@ const userSchema = {
     userData: userData, 
     userStats: userStats,
     flashcards: Array, // a list of ids to flashcards
-    friends: Array // a list of ids to other users
+    friends: Array, // a list of ids to other users
+    cardRequests: Array
 }
 
 const flashcardSchema = {
