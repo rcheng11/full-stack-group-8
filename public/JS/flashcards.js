@@ -36,6 +36,7 @@ function animate_fc_exit(flashcard, direction){
 }
 function animate_fc_enter(flashcard, direction){
     $(flashcard).show()
+    $(flashcard).css("transform", "none")
     $(flashcard).css("border-spacing", "0")
     $(flashcard).css("display", "flex")
 
@@ -74,22 +75,32 @@ function animate_fc_enter(flashcard, direction){
 $(".flashcard-button-prev").click(function() {
     curr_flashcard = $(".flashcard-list").find(".shown")
     next_flashcard = curr_flashcard.prev()
-    animate_fc_exit(curr_flashcard, "right")
-    setTimeout(() => animate_fc_enter(next_flashcard, "left"), 400)
-    
-    console.log("next clicked")
+    if(next_flashcard.length > 0){
+        $(".flashcard-button-next").removeAttr("disabled")
+        animate_fc_exit(curr_flashcard, "right")
+        setTimeout(() => animate_fc_enter(next_flashcard, "left"), 400)
+        if(next_flashcard.next().length == 0){
+            $(".flashcard-button-prev").attr("disabled", "true")
+        }
+    }
 })
 $(".flashcard-button-next").click(function() {
     curr_flashcard = $(".flashcard-list").find(".shown")
     next_flashcard = curr_flashcard.next()
-    animate_fc_exit(curr_flashcard, "left")
-    setTimeout(() => animate_fc_enter(next_flashcard, "right"), 400)
-
-    console.log("prev clicked")
+    console.log(next_flashcard)
+    if(next_flashcard.length > 0){
+        $(".flashcard-button-prev").removeAttr("disabled")
+        animate_fc_exit(curr_flashcard, "left")
+        setTimeout(() => animate_fc_enter(next_flashcard, "right"), 400)
+        if(next_flashcard.next().length == 0){
+            $(".flashcard-button-next").attr("disabled", "true")
+        }
+    }
 })
 
 // FLASHCARD FLIP ON CLICK EVENT
 $(".flashcard").click(function() {
+    $(this).css("border-spacing", "0")
     front = $(this).find(".flashcard-front")
     back = $(this).find(".flashcard-back")
 
@@ -98,7 +109,6 @@ $(".flashcard").click(function() {
         step: function(now, fx) {
         $(fx.elem).css('transform','rotateY('+now+'deg)');
         $(fx.elem).children().hide();
-        console.log(now)
         if(fx.start == now){
             $(fx.elem).children().hide()
         }
@@ -108,15 +118,20 @@ $(".flashcard").click(function() {
     }}
 
     on_complete = function(front, back) {
+        // if back is shown
         if( front.hasClass("hidden") ){
-            front.parent().css("transform", "none")
             back.addClass("hidden")
             front.removeClass("hidden")
         }
+        // if front is shown
         else if( back.hasClass("hidden") ){
             back.css("transform", "none")
             front.addClass("hidden")
             back.removeClass("hidden")
+        }
+        // if back shown flip
+        if(front.hasClass("hidden")){
+            front.parent().css("transform", "rotateY(180deg)")
         }
     }
 

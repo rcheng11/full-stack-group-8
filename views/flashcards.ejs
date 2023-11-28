@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,12 +11,22 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../CSS/flashcards.css">
+        <%- include('partials/imports/boxicons') %>
+        <%- include('partials/imports/favicon-default') %>
+        <%- include('partials/navbar/navbarCSS', {props: props}) %>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <%- include('partials/navbar/navbar', {props: props}) %>
         <div class="main-body">
+            <div>
+                <p>Welcome <%= props.username %>!</p>
+                <form method="POST" action="/logout">
+                    <input type="submit" value="Click Here to Logout">
+                </form>
+            </div>
             <div class="flashcard-container">
                 <div class="flashcard-display flashcard-display-style-green">
                     <!-- FLASH CARD LIST -->
@@ -63,8 +73,8 @@
           
         
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+        <%- include('partials/imports/jquery', {options: ["ui"]}) %>
         <script src="../JS/flashcards.js" async defer></script>
+        <%- include('partials/navbar/navbarJS', {props: props}) %>
     </body>
 </html>

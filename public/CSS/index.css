@@ -1,0 +1,64 @@
+* {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    background: url('/images/homepage.jpg') center/cover;
+    margin: 0px;
+}
+
+/* video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+  
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.large-logo {
+    width: 400px;
+    height: 370px;
+    margin: 20px auto;
+    background-image: url('/images/wordverse_logo.png');
+    background-size: cover;
+    transition: transform 0.3s ease 0s;
+    border-radius: 50%;
+}
+
+.large-logo:hover {
+    transform: scale(1.1);
+}
+  
+.welcome-text {
+    font-size: 6em;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.1);
+}
+
+.logo-link.clicked {
+    transform: scale(1.1);
+}

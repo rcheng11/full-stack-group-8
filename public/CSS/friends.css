@@ -1,0 +1,23 @@
+.profile-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid black;
+}
+.profile-container *{
+    margin-left: 1rem;
+}
+.profile-container img{
+    border-radius: 100%;
+    margin-right: 2rem;
+    background-color: lightgray;
+    height: 100px;
+    width: 100px;
+}
+.profile-options{
+    display: flex;
+    flex-direction: column;
+}
+.profile-options *{
+    margin-top: 1rem;
+}
