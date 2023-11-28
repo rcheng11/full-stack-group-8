@@ -1,5 +1,6 @@
+/* Animated wallpapers taken from::after
+https://moewalls.com/landscape/warm-winter-night-street-live-wallpaper/ */
 * {
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -35,7 +36,7 @@ video {
     background-color: grey;
     font-size: 32px;
     width: 60%;
-    padding: 40px;
+    padding: 0px;
     box-sizing: border-box;
     border-style: inset;
     border-radius: 10px;

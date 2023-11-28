@@ -13,13 +13,13 @@
         <link rel="stylesheet" href="../CSS/flashcards.css">
         <%- include('partials/imports/boxicons') %>
         <%- include('partials/imports/favicon-default') %>
-        <%- include('partials/dashboard/dashboardCSS', {props: props}) %>
+        <%- include('partials/navbar/navbarCSS', {props: props}) %>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <%- include('partials/dashboard/dashboard', {props: props}) %>
+        <%- include('partials/navbar/navbar', {props: props}) %>
         <div class="main-body">
             <div>
                 <p>Welcome <%= props.username %>!</p>

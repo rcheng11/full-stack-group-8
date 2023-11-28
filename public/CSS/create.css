@@ -1,7 +1,26 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    /* background: url('/images/signup_page.jpg') center/cover; */
+/* Animated wallpapers taken from::after
+https://moewalls.com/landscape/warm-winter-night-street-live-wallpaper/ */
+
+* {
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #title {
     color: black;
     font-weight: bold;
@@ -38,6 +57,7 @@ body {
 #front-group, #back-group{
     display: inline-block;
     border: 1px solid black;
+    background-color: white;
 }
 #frontBack-submit{
     
