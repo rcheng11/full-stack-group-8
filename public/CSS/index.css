@@ -6,7 +6,7 @@
 body {
     font-family: Arial, sans-serif;
     font-size: 20px;
-    background: url('/images/homepage.jpg') center/cover;
+    background: url('/images/homepage.jpg') center/cover fixed;
     margin: 0px;
 }
 
@@ -23,6 +23,7 @@ body {
 .container {
     text-align: center;
     margin-top: 50px;
+    overflow: hidden;
 }
 
 .large-logo {
