@@ -43,9 +43,7 @@ function createCard(selector, type){
 }
 function cardSuccess(message){
     $("#frontBack-front, #frontBack-back").val("") 
-    $("#popup-message").html(message)
-    $("#popup-container").show()
-    $("#popup-container").delay(1000).hide(0)
+    flashPopUp(message)
 }
 $("#frontBack-submit").click(function() {
     createCard("#create-frontBack", "frontBack")

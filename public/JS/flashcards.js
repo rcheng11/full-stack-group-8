@@ -3,7 +3,8 @@
 function animate_fc_exit(flashcard, direction){
     side = ""
     rotation_constant = ""
-    $(flashcard).css("border-spacing", "0")
+    $(flashcard).removeAttr("style")
+    $(flashcard).find(".flashcard-contents").removeAttr("style")
 
     if (direction == "right"){
         side = "left"
@@ -79,7 +80,7 @@ $(".flashcard-button-prev").click(function() {
         $(".flashcard-button-next").removeAttr("disabled")
         animate_fc_exit(curr_flashcard, "right")
         setTimeout(() => animate_fc_enter(next_flashcard, "left"), 400)
-        if(next_flashcard.next().length == 0){
+        if(next_flashcard.prev().length == 0){
             $(".flashcard-button-prev").attr("disabled", "true")
         }
     }

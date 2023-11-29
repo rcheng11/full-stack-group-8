@@ -1,0 +1,26 @@
+.collection-container{
+    display: flex;
+    margin: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.collection-item{
+    position: relative;
+}
+.card-buttons{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+.card-buttons i{
+    font-size: 2rem;
+    cursor: pointer;
+}
+.card-delete:hover {
+    color: rgb(174, 48, 48);
+}
+.card-edit:hover {
+    color: rgb(72, 95, 197);
+}

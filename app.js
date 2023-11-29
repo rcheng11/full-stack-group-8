@@ -228,10 +228,34 @@ app.get("/friends", function(req, res) {
   }
 })
 
-app.listen(3000,function(){
-  console.log("Server started on port 3000." + 
-  "Type http://localhost:3000/ into your browser to access the application.");
+app.get("/collection", function(req, res){
+  // must be logged in to access this route
+  if(!req.session.userId){
+    res.redirect("/login?error=2")
+  }
+  else{
+    User.findOne({_id : req.session.userId}).then(user => {
+      props = {
+        username: user.userData.username,
+        school: user.userData.school
+      }
+      flashcardIds = user.flashcards
+      
+      Flashcard.find({"_id" : { $in: flashcardIds}}).then(cards => {
+        props.flashcards = cards
+        res.render("collection.ejs", props=props)
+      })
+      .catch(err => {
+        res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+      })
+      
+    })
+    .catch(err => {
+      res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+    })
+  }
 })
+
 app.get("/findFriends", function(req, res){
   User.find({"userData.username" : { $regex : req.query.name}}).then(users => {
     props = {
@@ -239,4 +263,44 @@ app.get("/findFriends", function(req, res){
     }
     res.send(props)
   })
+})
+
+app.post("/deleteCard", function(req, res){
+  Flashcard.findOne({ _id : req.body.cardId }).then(card => {
+    // check that the user can delete the card
+    // i.e they are the owner
+    if(card.owner == req.session.userId){
+      // attempt to delete the card, first from the users card list
+      User.findOne({ _id : req.session.userId }).then(user => {
+        let idx = user.flashcards.indexOf(req.body.cardId)
+        user.flashcards.splice(idx, 1)
+        console.log(user.flashcards)
+        user.save().then(savedUser => {
+          Flashcard.deleteOne({ _id : req.body.cardId }).then(() => {
+            res.send("Card deleted successfully!")
+          })
+          .catch(err => {
+            console.log("flashcard deleteOne" + err)
+            res.send("Card could not be deleted. Try again later.")
+          })
+        })
+      })
+      .catch(err => {
+        console.log("first flashcard findOne" + err)
+        res.send("Card could not be deleted. Try again later.")
+      })
+    }
+    else{
+      res.send("You cannot delete a card you don't own...")
+    }
+  })
+  .catch(err => {
+    console.log("flashcard deleteOne" + err)
+    res.send("Your card could not be deleted at this time. Try again later.")
+  })
+})
+
+app.listen(3000,function(){
+  console.log("Server started on port 3000." + 
+  "Type http://localhost:3000/ into your browser to access the application.");
 })
