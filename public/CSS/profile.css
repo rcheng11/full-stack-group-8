@@ -1,13 +1,14 @@
 /* Animated wallpapers taken from::after
 https://moewalls.com/landscape/warm-winter-night-street-live-wallpaper/ */
 * {
-    padding: 0;
+    padding: 0px;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: 0px;
 }
 
 video {
