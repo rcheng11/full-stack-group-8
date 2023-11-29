@@ -15,11 +15,11 @@ function profileHTML(user){
         </div>
         <div class="profile-data">
             <h2>${user.userData.username}</h2>
-            <p>Last Login: ${user.userStats.lastLogin}</p>
+            <p>Last Active: ${user.userStats.lastLogin}</p>
             <p>Current Streak: ${user.userStats.streak}</p>
         </div>
         <div class="profile-options">
-            <button data-username="${user.userData.username}" onclick="ajaxAddFriend(this)">Add friend</button>
+            <button class="add-friend" data-username="${user.userData.username}" onclick="ajaxAddFriend(this)">Add friend</button>
             <button disabled>View Profile</button>
         </div>
         </div>`
