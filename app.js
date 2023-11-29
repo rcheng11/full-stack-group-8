@@ -258,10 +258,45 @@ app.get("/collection", function(req, res){
 
 app.get("/findFriends", function(req, res){
   User.find({"userData.username" : { $regex : req.query.name}}).then(users => {
+    // remove the passwords before sending over
+    let modifiedUsers = []
+    for(let i = 0; i < users.length; i++){
+      let modifiedUser = users[i]
+      modifiedUser.password = "N/A"
+      modifiedUsers.push(modifiedUser)
+    }
     props = {
-      users: users
+      users: modifiedUsers
     }
     res.send(props)
+  })
+})
+app.post("/addFriend", function(req, res){
+  User.findOne({_id : req.session.userId}).then(user => {
+    User.findOne({"userData.username" : req.body.username }).then(friend => {
+      if(user._id.equals(friend._id)){
+        res.send("You cannot befriend yourself.")
+      }
+      // check that they are not already friends
+      else if(user.friends.indexOf(friend._id) == -1){
+        user.friends.push(friend._id)
+        friend.friends.push(user._id)
+        user.save().then(savedUser => {
+          friend.save().then(savedFriend => {
+            res.send("Successfully added " + friend.userData.username + " as a friend!")
+          })
+          .catch(err => {
+            res.send("Failed to add " + friend.userData.username + " as a friend.")
+          })
+        })
+        .catch(err => {
+          res.send("Failed to add " + friend.userData.username + " as a friend.")
+        })
+      }
+      else{
+        res.send("You're already friends with " + friend.userData.username)
+      }
+    })
   })
 })
 
@@ -311,9 +346,26 @@ app.get("/inbox", function(req, res){
         username: user.userData.username,
         school: user.userData.school
       }
-      res.render("inbox.ejs", props=props)
+      let flashcardIds = user.flashcards
+      Flashcard.find({"_id" : { $in: flashcardIds}}).then(cards => {
+        props.flashcards = cards
+        let friendIds = user.friends
+        User.find({"_id" : { $in: friendIds}}).then(friends => {
+          props.friends = friends
+          res.render("inbox.ejs", props=props)
+        })
+        .catch(err => {
+          console.log(err)
+          res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+      })
     })
     .catch(err => {
+      console.log(err)
       res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
     })
   }

@@ -9,17 +9,46 @@
     <%- include('partials/navbar/navbarCSS', {props: props}) %>
     <%- include('partials/cards/cardCSS') %>
     <%- include('partials/popup/popupCSS') %>
-    <link rel="stylesheet" href="/CSS/collection.css">
+    <link rel="stylesheet" href="/CSS/inbox.css">
 </head>
 <body>
     <%- include('partials/navbar/navbar', {props: props}) %>
     <%- include('partials/popup/popup') %>
-    <h1>Incoming Cards</h1>
+    <div class="inbox-container">
+        <div class="inbox-button-group">
+            <button>Send a Card</button>
+            <button>Inbox</button>
+        </div>
+        <div class="inbox-sub-container" id="inbox-incoming-container">
+        </div>
+        <div class="inbox-sub-container" id="inbox-send-container">
+            <div class="friend-select-container">
+                <label for="friend">Choose a friend</label>
+                <select name="friend" id="friend-select">
+                    <% for( let i = 0; i < props.friends.length; i++ ) { %>
+                        <option value="" data-id="<%= props.friends[i]._id  %>">
+                            <%= props.friends[i].userData.username %>
+                        </option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="inbox-item-container">
+                <% for( let i = 0; i < props.flashcards.length; i++ ) { %>
+                    <div class="inbox-item">
+                        <%- include('partials/cards/frontBack', { card : props.flashcards[i], topCard : true }) %>
+                        <div data-id="<%= props.flashcards[i]._id %>" class="card-buttons">
+                            <i class="bx bxs-send card-send" onclick="cardSend(this)"></i>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
     
     <%- include('partials/imports/jquery', {options: ["ui"]}) %>
     <%- include('partials/navbar/navbarJS', {props: props}) %>
     <%- include('partials/cards/cardJS') %>
     <%- include('partials/popup/popupJS') %>
-    <script src="JS/collection.js" async defer></script>
+    <script src="/JS/inbox.js" async defer></script>
 </body>
 </html>

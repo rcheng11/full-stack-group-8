@@ -24,10 +24,12 @@ h1 {
     margin: auto; 
     height: 50px;
     line-height: 50px;
-    width: 27.5%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     text-align: center;
+}
+.friend-search-bar * {
+    margin-right: 1rem;
 }
 #friend-search-input {
     position: relative;
@@ -49,16 +51,29 @@ h1 {
     }
 }
 .friend-search-target{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     margin: auto;
     width: 75%;
+    max-height: 70vh;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    background-color: black;
 }
 .profile-container{
     margin: auto;
-    width: 75%;
     display: flex;
+    width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    border: 1px solid black;
+    justify-content: center;
+    color: white;
+}
+.profile-container:hover{
+    background-color: rgb(32, 32, 32);
 }
 .profile-container *{
     margin-left: 1rem;
@@ -71,10 +86,18 @@ h1 {
     width: 100px;
     border: 2.5px solid black;
 }
+.friend-search-target{
+    margin-top: 2rem;
+}
 .profile-options{
     display: flex;
     flex-direction: column;
 }
-.profile-options *{
+.profile-options button{
     margin-top: 1rem;
+    color: white;
+    background-color: rgb(52, 52, 52);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
 }

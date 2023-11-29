@@ -9,9 +9,11 @@
     <%- include('partials/imports/boxicons') %>
     <%- include('partials/imports/favicon-default') %>
     <%- include('partials/navbar/navbarCSS', {props: props}) %>
+    <%- include('partials/popup/popupCSS') %>
 </head>
 <body>
     <%- include('partials/navbar/navbar', {props: props}) %>
+    <%- include('partials/popup/popup') %>
     <h1>Add Friends!</h1>
     <div class="friend-search">
         <div class="friend-search-bar">
@@ -20,12 +22,15 @@
             <button id="friend-search-submit"><i class="fa fa-search"></i></button>
         </div>
         <div class="friend-search-target">
-            
+            <div class="profile-container">
+                <div class="profile-container" style="justify-content: center; padding: 2rem">Make a search!</div>
+            </div>
         </div>
     </div>
     <!-- JS -->
     <%- include('partials/imports/jquery', {options: ["ui"]}) %>
     <%- include('partials/navbar/navbarJS') %>
+    <%- include('partials/popup/popupJS') %>
     <script src="/JS/friends.js" async defer></script>
 </body>
 </html>

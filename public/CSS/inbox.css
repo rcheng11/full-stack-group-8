@@ -1,0 +1,45 @@
+.inbox-container{
+    margin: 2rem;
+    height: 100vh;
+}
+.inbox-sub-container{
+    border: 1px solid black;
+    height: 100%;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.inbox-item-container{
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    padding: 1rem;
+    height: 100%;
+    width: 100%;
+}
+.inbox-item{
+    position: relative;
+    margin-right: 1rem;
+}
+.card-buttons{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+.card-buttons i{
+    font-size: 2rem;
+    cursor: pointer;
+}
+#inbox-incoming-container{
+    display: none;
+}
+#inbox-send-container{
+    display: flex;
+}
+.friend-select-container{
+    width: 100%;
+}
