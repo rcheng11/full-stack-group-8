@@ -8,11 +8,10 @@ https://moewalls.com/landscape/warm-winter-night-street-live-wallpaper/ */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: url('/images/homepage.jpg') center/cover;
 }
 
 video {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
