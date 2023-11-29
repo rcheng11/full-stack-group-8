@@ -29,6 +29,7 @@ function animate_fc_exit(flashcard, direction){
                 $(fx.elem).removeAttr("style")
 
                 $(fx.elem).find(".flashcard-front").removeClass("hidden")
+                $(fx.elem).find(".flashcard-hint").removeClass("hidden")
                 $(fx.elem).find(".flashcard-back").addClass("hidden")
             }
         }
@@ -104,6 +105,7 @@ $(".flashcard").click(function() {
     $(this).css("border-spacing", "0")
     front = $(this).find(".flashcard-front")
     back = $(this).find(".flashcard-back")
+    hint = $(this).find("flashcard-hint")
 
     props = { borderSpacing: -180 }
     opts = {

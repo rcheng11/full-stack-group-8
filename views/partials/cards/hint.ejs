@@ -1,0 +1,17 @@
+<% let shown = "in-deck" %>
+<% if (topCard == true) { %>
+    <% shown = "shown" %>
+<% } %>
+<div class="flashcard flashcard-style-normal <%= shown %>">
+    <div class="flashcard-contents">
+        <div class="flashcard-front">
+            <%= card.content.front %>
+        </div>
+        <div class="flashcard-hint">
+            <%= card.content.hint %>
+        </div>
+        <div class="flashcard-back hidden">
+            <%= card.content.back %>
+        </div>
+    </div>
+</div>

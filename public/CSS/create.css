@@ -39,7 +39,7 @@ video {
     text-align: center;  
     width: 30%;  
 }
-#front-and-group {
+.front-and-group {
     display: flex;
     justify-content: space-between;
 }
@@ -54,7 +54,7 @@ video {
     transform: scale(1.25);
     color: gray;
 }
-#front-group, #back-group{
+.front-group, .back-group, .hint-group{
     display: inline-block;
     border: 1px solid black;
     background-color: white;
@@ -64,7 +64,7 @@ video {
     border-radius: 12px;
     border: 1px solid black;
 }
-#frontBack-back, #frontBack-front{
+.card-maker{
     /* width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

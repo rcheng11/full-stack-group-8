@@ -60,6 +60,16 @@ $("#create-btn-hint").click(function() {
     $("#card-create").children().hide()
     $("#create-hint").show()
 })
+
+$("#hint-submit").click(function() {
+    createCard("#create-hint", "hint")
+})
+$("#hint-front, #hint-back, #hint-hint").on("keypress", function(e) {
+    if(e.which == 13){
+        createCard("#create-hint", "hint")
+    }
+})
+
 $("#create-btn-fillIn").click(function() {
     $("#card-create").children().hide()
     $("#create-fillIn").show()
