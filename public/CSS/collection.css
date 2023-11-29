@@ -7,6 +7,7 @@
 }
 .collection-item{
     position: relative;
+    margin-right: 1rem;
 }
 .card-buttons{
     position: absolute;
@@ -20,6 +21,9 @@
 }
 .card-delete:hover {
     color: rgb(174, 48, 48);
+}
+.card-delete:hover .flashcard { 
+    border-color: rgb(174, 48, 48);
 }
 .card-edit:hover {
     color: rgb(72, 95, 197);

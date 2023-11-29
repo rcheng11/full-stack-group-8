@@ -300,6 +300,25 @@ app.post("/deleteCard", function(req, res){
   })
 })
 
+app.get("/inbox", function(req, res){
+  // must be logged in to access this route
+  if(!req.session.userId){
+    res.redirect("/login?error=2")
+  }
+  else{
+    User.findOne({_id : req.session.userId}).then(user => {
+      props = {
+        username: user.userData.username,
+        school: user.userData.school
+      }
+      res.render("inbox.ejs", props=props)
+    })
+    .catch(err => {
+      res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
+    })
+  }
+})
+
 app.listen(3000,function(){
   console.log("Server started on port 3000." + 
   "Type http://localhost:3000/ into your browser to access the application.");

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('partials/imports/boxicons') %>
+    <%- include('partials/imports/favicon-default') %>
+    <%- include('partials/navbar/navbarCSS', {props: props}) %>
+    <%- include('partials/cards/cardCSS') %>
+    <%- include('partials/popup/popupCSS') %>
+    <link rel="stylesheet" href="/CSS/collection.css">
+</head>
+<body>
+    <%- include('partials/navbar/navbar', {props: props}) %>
+    <%- include('partials/popup/popup') %>
+    <h1>Incoming Cards</h1>
+    
+    <%- include('partials/imports/jquery', {options: ["ui"]}) %>
+    <%- include('partials/navbar/navbarJS', {props: props}) %>
+    <%- include('partials/cards/cardJS') %>
+    <%- include('partials/popup/popupJS') %>
+    <script src="JS/collection.js" async defer></script>
+</body>
+</html>
