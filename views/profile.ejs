@@ -20,11 +20,11 @@
                 <h2>Daily Study Streak: <%= props.userStats.streak %></h2>
                 <i class='bx bxs-hot bx-tada'></i>
             </div>
-            <div class="create">
+            <div id="pfp-create-btn" class="create">
                 <h2>Add a Card</h2>
                 <i class='bx bxs-folder-plus'></i>
             </div>
-            <div class="challenge">
+            <div id="pfp-challenge-btn" class="challenge">
                 <h2>Challenge Friends</h2>
                 <i class='bx bxs-trophy bx-fade-up' ></i>
             </div>
@@ -34,5 +34,6 @@
     <!-- JS -->
     <%- include('partials/imports/jquery', {options: ["ui"]}) %>
     <%- include('partials/navbar/navbarJS', {props: props}) %>
+    <script src="/JS/profile.js"></script>
 </body>
 </html>
