@@ -95,6 +95,7 @@ app.post("/login", function(req, res){
     if(user.userData.password == passwordIn){
       // create a user
       req.session.userId = user._id
+      req.session.username = user.userData.username
       res.redirect("/profile")
     }
     else{
@@ -341,27 +342,28 @@ app.get("/inbox", function(req, res){
     res.redirect("/login?error=2")
   }
   else{
+    // find current user
     User.findOne({_id : req.session.userId}).then(user => {
       props = {
         username: user.userData.username,
         school: user.userData.school
       }
+      // get flashcards from ids
       let flashcardIds = user.flashcards
       Flashcard.find({"_id" : { $in: flashcardIds}}).then(cards => {
         props.flashcards = cards
-        let friendIds = user.friends
-        User.find({"_id" : { $in: friendIds}}).then(friends => {
-          props.friends = friends
-          res.render("inbox.ejs", props=props)
+        // get card requests from ids
+        let cardRequestIds = user.cardRequests.map(req => req.cardId)
+        Flashcard.find({"_id" : { $in: cardRequestIds}}).then(cardReqs => {
+          props.cardRequests = cardReqs
+          props.requestsData = user.cardRequests
+          // get friends from ids
+          let friendIds = user.friends
+          User.find({"_id" : { $in: friendIds}}).then(friends => {
+            props.friends = friends
+            res.render("inbox.ejs", props=props)
+          })
         })
-        .catch(err => {
-          console.log(err)
-          res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
-        })
-      })
-      .catch(err => {
-        console.log(err)
-        res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
       })
     })
     .catch(err => {
@@ -369,6 +371,65 @@ app.get("/inbox", function(req, res){
       res.status(500).send("Sorry something went wrong when trying to access the page. Try again later.")
     })
   }
+})
+app.post("/sendCard", function(req, res){
+  let cardId = req.body.cardId
+  let friendId = req.body.friendId
+  User.findOne({_id : friendId}).then(friend => {
+    // send request only if not already there
+    let cardRequestIds = friend.cardRequests.map(card => card.cardId)
+    if((cardRequestIds.indexOf(cardId) == -1)
+        && (friend.flashcards.indexOf(cardId) == -1)){
+      friend.cardRequests.push({
+        sender: req.session.username,
+        senderId: req.session.userId,
+        cardId: cardId
+      })
+      friend.save().then(savedDoc => {
+        res.send(`Card sent to ${friend.userData.username}'s inbox!`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.send("Sorry something went wrong. Try again later.")
+      })
+    }
+    else{
+      res.send(`Your friend ${friend.userData.username} already has this card in their inbox or collection.`)
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.send("Sorry something went wrong. Try again later.")
+  })
+})
+
+app.post("/cardReject", function(req, res){
+  User.findOne({_id : req.session.userId}).then(user => {
+    let idx = user.cardRequests.map(card => card.cardId).indexOf(req.body.cardId)
+    user.cardRequests.splice(idx, 1)
+    user.save().then(savedDoc => {
+      res.send("Card request rejected!")
+    })
+  })
+  .catch(err => {
+    res.send("Could not reject request. Try again later.")
+  })
+})
+app.post("/cardAccept", function(req, res){
+  User.findOne({_id : req.session.userId}).then(user => {
+    let idx = user.cardRequests.map(card => card.cardId).indexOf(req.body.cardId)
+    user.flashcards.push(user.cardRequests[idx].cardId)
+    user.cardRequests.splice(idx, 1)
+
+    
+
+    user.save().then(savedDoc => {
+      res.send("Card added to your collection!")
+    })
+  })
+  .catch(err => {
+    res.send("Could not accept request. Try again later.")
+  })
 })
 
 app.listen(3000,function(){

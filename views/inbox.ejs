@@ -16,10 +16,24 @@
     <%- include('partials/popup/popup') %>
     <div class="inbox-container">
         <div class="inbox-button-group">
-            <button>Send a Card</button>
-            <button>Inbox</button>
+            <button id="send-button">Send a Card</button>
+            <button id="incoming-button">Inbox</button>
         </div>
         <div class="inbox-sub-container" id="inbox-incoming-container">
+            <div class="inbox-item-container">
+                <% for( let i = 0; i < props.cardRequests.length; i++ ) { %>
+                    <div class="inbox-item">
+                        <%- include('partials/cards/frontBack', { card : props.cardRequests[i], topCard : true }) %>
+                        <div data-id="<%= props.cardRequests[i]._id %>" class="card-buttons">
+                            <i class="bx bxs-check-circle card-accept" onclick="cardAccept(this)"></i>
+                            <i class="bx bxs-x-circle card-reject" onclick="cardReject(this)"></i>
+                        </div>
+                        <div class="sender-container">
+                            Sent from <span class="username"><%= props.requestsData[i].sender %></span>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
         </div>
         <div class="inbox-sub-container" id="inbox-send-container">
             <div class="friend-select-container">
