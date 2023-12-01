@@ -14,6 +14,11 @@
 <body>
     <%- include('partials/navbar/navbar', {props: props}) %>
     <%- include('partials/popup/popup') %>
+
+    <video autoplay muted loop>
+        <source src="/images/inbox.mp4" type="video/mp4">
+    </video>
+
     <div class="inbox-container">
         <div class="inbox-button-group">
             <button id="send-button">Send a Card</button>

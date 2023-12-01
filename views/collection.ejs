@@ -15,6 +15,10 @@
     <%- include('partials/navbar/navbar', {props: props}) %>
     <%- include('partials/popup/popup') %>
 
+    <video autoplay muted loop>
+        <source src="/images/collection.mp4" type="video/mp4">
+    </video>
+
     <div class="collection-container">
         <% for( let i = 0; i < props.flashcards.length; i++ ) { %>
             <div class="collection-item">
