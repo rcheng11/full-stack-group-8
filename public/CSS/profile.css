@@ -31,12 +31,11 @@ video {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin-top: -50px;
 }
 
 .create, .challenge {
-    background-color: grey;
+    color: grey;
+    background-color: black;
     font-size: 32px;
     width: 60%;
     padding: 0px;
@@ -49,6 +48,7 @@ video {
     align-items: center;
     cursor: pointer;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .bx.bxs-dashboard, .bx.bx-menu {
@@ -79,15 +79,13 @@ video {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 10%;
     background-color: black;
     color: white;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
 }
 
 .streak i.bx.bxs-hot.bx-tada {
     font-size: 50px;
     color: orange;
-    margin-right: 10px;
 }
