@@ -22,7 +22,7 @@ A collaborative flashcard app with engaging features such as creating a personal
     - Establish MongoDB database and schema for users ✔️
     - Implement basic user login and account creation ✔️
 - Beta version by Dec 1st
-    - Implement fill in and hint flash card options 
+    - Implement fill in and hint flash card options (BUGGED) 
     - Implement card challenge feature that allows users to "send" a card to their friend's deck.✔️
     - Initial testing ✔️
 - Final Version by Dec 5th

@@ -20,7 +20,12 @@
             <button id="incoming-button">Inbox</button>
         </div>
         <div class="inbox-sub-container" id="inbox-incoming-container">
+            <% if (props.cardRequests.length == 0) { %>
+            <% } %>
             <div class="inbox-item-container">
+                <% if (props.cardRequests.length == 0) { %>
+                    Your inbox is empty...
+                <% } %>
                 <% for( let i = 0; i < props.cardRequests.length; i++ ) { %>
                     <div class="inbox-item">
                         <%- include('partials/cards/frontBack', { card : props.cardRequests[i], topCard : true }) %>

@@ -7,9 +7,9 @@ https://moewalls.com/landscape/warm-winter-night-street-live-wallpaper/ */
 }
 
 body {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    margin: 0px;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        margin: 0px;
 }
 
 video {
@@ -42,7 +42,7 @@ video {
 }
 #front-and-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .create-btn {
     border-radius: 12px;
@@ -90,21 +90,4 @@ video {
 }
 .card-create-entry{
     display: none;
-}
-#popup-container{
-    display: fixed;
-    position: absolute;
-    width: 100vw;
-    top: 0;
-    display: none;
-}
-#popup{
-    display: flex;
-    justify-content: center;
-}
-#popup-message{
-    border: 1px solid black;
-    background-color: white;
-    padding: 10px 20px;
-    width: fit-content;
 }
