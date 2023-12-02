@@ -139,3 +139,16 @@ $(".flashcard").click(function() {
     $(this).animate(props, options=opts, complete=on_complete(front, back))
 
 })
+
+// FILL IN CARDS
+function validateFillIn(e){
+    $(e).css("width", `${Math.min(Math.max($(e).html().length * 0.7, 2), 10)}rem`)
+    if($(e).html() == $(e).data("answer")){
+        $(e).removeClass("fill-in-wrong")
+        $(e).addClass("fill-in-correct")
+    }
+    else{
+        $(e).removeClass("fill-in-correct")
+        $(e).addClass("fill-in-wrong")
+    }
+}

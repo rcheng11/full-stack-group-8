@@ -112,6 +112,44 @@ body {
 .flashcard-back{
     transform: rotateY(-180deg)
 }
+/* FILL IN CARD */
+.fill-in-card{
+    width: 15rem;
+    height: 20rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+    font-size: 1.3rem;
+}
+.fill-in-contents{
+    display: inline-block;
+}
+.fill-in-blank{
+    width: 2rem;
+    font-size: 1.3rem;
+    border: none;
+    border-bottom: 2px solid black;
+    text-align: center;
+    display: inline-block;
+    overflow-x: hidden;
+    white-space: nowrap;
+    position: relative;
+    vertical-align: bottom;
+}
+.fill-in-blank:focus{
+    outline: none;
+}
+.fill-in-correct{
+    border-bottom-color: green;
+}
+.fill-in-wrong{
+    border-bottom-color: rgb(163, 20, 20);
+}
 /* STATES */
 .hidden{
     display: none;

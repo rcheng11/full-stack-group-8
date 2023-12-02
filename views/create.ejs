@@ -40,8 +40,8 @@
                         <input name="back" type="text" label="front" id="frontBack-back"  placeholder="John Doe">
                     </div>
                 </div>
-            </br>
-            </br>
+                </br>
+                </br>
                 <button id="frontBack-submit" class="create-btn">Create</button>
             
                 <div id="card-preview" style="display: flex; flex-direction: column; align-items: center;">
@@ -61,8 +61,16 @@
             <div class="card-create-entry" id="create-hint">
                 <h3>Hint Flashcards Not Yet Available</h3>
             </div>
+            <!-- FILL IN CARD CREATION -->
             <div class="card-create-entry" id="create-fillIn">
-                <h3>Fill In Not Yet Available</h3>
+                <div id="fill-in-preview" style="display: flex; flex-direction: column; align-items: center;">
+                    <h1>Preview:</h1>
+                    <div class="fill-in-card flashcard-style-normal shown">
+                        <div class="fill-in-contents">
+                            This <span class="fill-in-blank" data-answer="blank" oninput="validateFillIn(this)" contenteditable></span> is here
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
