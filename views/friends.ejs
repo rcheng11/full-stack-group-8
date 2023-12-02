@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wordverse</title>
     <link rel="stylesheet" href="/CSS/friends.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%- include('partials/imports/boxicons') %>
@@ -14,6 +14,11 @@
 <body>
     <%- include('partials/navbar/navbar', {props: props}) %>
     <%- include('partials/popup/popup') %>
+
+    <video autoplay muted loop>
+        <source src="/images/friends.mp4" type="video/mp4">
+    </video>
+
     <h1>Add Friends!</h1>
     <div class="friend-search">
         <div class="friend-search-bar">

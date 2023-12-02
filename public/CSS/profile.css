@@ -30,10 +30,12 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.streak, .create, .challenge {
-    background-color: grey;
+.create, .challenge {
+    color: grey;
+    background-color: black;
     font-size: 32px;
     width: 60%;
     padding: 0px;
@@ -46,15 +48,11 @@ video {
     align-items: center;
     cursor: pointer;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .bx.bxs-dashboard, .bx.bx-menu {
     font-size: 48px;
-}
-
-.streak i.bx.bxs-hot.bx-tada {
-    font-size: 100px;
-    color: orange;
 }
 
 .create i.bx.bxs-folder-plus {
@@ -67,8 +65,27 @@ video {
     color: gold;
 }
 
-.streak:hover, .create:hover, .challenge:hover {
+.create:hover, .challenge:hover {
     transform: scale(1.1);
     border-width: 4px;
     color:white
+}
+
+.streak {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.streak i.bx.bxs-hot.bx-tada {
+    font-size: 50px;
+    color: orange;
 }
