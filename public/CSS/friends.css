@@ -117,15 +117,20 @@ h1 {
 .profile-data{
     text-align: left;
 }
-label {
-    color: white;
-    background-color: black;
-    border-radius: 5px;
-    margin-right: 5px;
-}
 
 h1 {
-    color: white;
     display: inline-block;
-    background-color: black;
+}
+
+
+.label-box {
+    color: white;
+    background: transparent;
+    border: 2px solid gray;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding: 0px 5px;
 }
