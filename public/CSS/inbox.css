@@ -78,14 +78,18 @@ video {
 }
 
 .friend-select-container {
-    background-color: white;
     max-width: 300px;
     margin: 0 auto;
     padding: 5px;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    color: white;
 }
 
 .inbox-button-group {
-    background-color: white;
+    display: grid;
+    background: transparent;
+    backdrop-filter: blur(20px);
     max-width: 300px;
     margin: 0 auto;
     padding: 5px;
