@@ -61,14 +61,14 @@ h1 {
     box-shadow: inset 0 1px 4px 0 rgb(119 122 175 / 30%);
     overflow: hidden;
     transition: all 100ms ease-in-out;
-    :focus {
-        border-color: #3c4fe0;
-        box-shadow: 0 1px 0 0 rgb(35 38 59 / 5%);
-    }
+}
+#friend-search-input:focus {
+    border-color: #3c4fe0;
+    box-shadow: 0 1px 0 0 rgb(35 38 59 / 5%);
 }
 .friend-search-target{
     margin: auto;
-    width: 30%;
+    width: 60%;
     max-height: 70vh;
     overflow-y: scroll;
     display: flex;
@@ -115,7 +115,13 @@ h1 {
     padding: 0.5rem 1rem;
     border-radius: 9999px;
 }
-
+.profile-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
+}
 label {
     color: white;
     background-color: black;
