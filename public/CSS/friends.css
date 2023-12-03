@@ -72,12 +72,11 @@ h1 {
     max-height: 70vh;
     overflow-y: scroll;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
     background-color: black;
 }
 .profile-container{
-    margin: auto;
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -116,10 +115,6 @@ h1 {
     border-radius: 9999px;
 }
 .profile-data{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
     text-align: left;
 }
 label {
