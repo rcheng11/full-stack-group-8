@@ -21,7 +21,6 @@ function profileHTML(user){
         </div>
         <div class="profile-options">
             <button class="add-friend" data-username="${user.userData.username}" onclick="ajaxAddFriend(this)">Add friend</button>
-            <button disabled>View Profile</button>
         </div>
         </div>`
     )

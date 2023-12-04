@@ -63,9 +63,14 @@
             </div>
             <!-- FILL IN CARD CREATION -->
             <div class="card-create-entry" id="create-fillIn">
+                <div>
+                    <input type="text" name="fillInContent" id="fillin-content" placeholder="This ;;blank;; is here"/>
+                    <br>
+                    <button id="fillIn-submit" class="create-btn">Create</button>
+                </div>
                 <div id="fill-in-preview" style="display: flex; flex-direction: column; align-items: center;">
                     <h1>Preview:</h1>
-                    <div class="fill-in-card flashcard-style-normal shown">
+                    <div id="fillin-ex" class="fill-in-card flashcard-style-normal shown">
                         <div class="fill-in-contents">
                             This <span class="fill-in-blank" data-answer="blank" oninput="validateFillIn(this)" contenteditable></span> is here
                         </div>

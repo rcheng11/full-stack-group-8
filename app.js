@@ -134,7 +134,28 @@ app.get("/profile", function(req, res){
           flashcards: user.flashcards,
           userStats: user.userStats
         }
-        res.render("profile.ejs", props=props)
+
+        // Checks streak
+        let lastLogin = props.userStats.lastLogin
+        let today = new Date()
+        let yesterday = new Date(today)
+        yesterday.setDate(today.getDate() - 1)
+
+        if (lastLogin.toDateString() === yesterday.toDateString()) {
+          props.userStats.streak += 1
+        }
+        else if(today.toDateString() === lastLogin.toDateString()){
+          props.userStats.streak = props.userStats.streak
+        }
+        else{
+          props.userStats.streak = 1
+        }
+
+        props.userStats.lastLogin = today;
+
+        user.save().then((savedUser) => {
+          res.render("profile.ejs", props=props);
+        })
       }
   })
   .catch(err => {

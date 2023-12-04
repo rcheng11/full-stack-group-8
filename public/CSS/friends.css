@@ -125,6 +125,20 @@ h1 {
     display: inline-block;
 }
 
+.profile-data p{
+    width: 20rem;
+}
+.label-box {
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+h1 {
+    display: inline-block;
+}
+
 .label-box {
     color: white;
     background: transparent;

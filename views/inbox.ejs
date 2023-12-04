@@ -33,7 +33,7 @@
                 <% } %>
                 <% for( let i = 0; i < props.cardRequests.length; i++ ) { %>
                     <div class="inbox-item">
-                        <%- include('partials/cards/frontBack', { card : props.cardRequests[i], topCard : true }) %>
+                        <%- include('partials/cards/card', { card : props.cardRequests[i], topCard : true }) %>
                         <div data-id="<%= props.cardRequests[i]._id %>" class="card-buttons">
                             <i class="bx bxs-check-circle card-accept" onclick="cardAccept(this)"></i>
                             <i class="bx bxs-x-circle card-reject" onclick="cardReject(this)"></i>
@@ -59,7 +59,7 @@
             <div class="inbox-item-container">
                 <% for( let i = 0; i < props.flashcards.length; i++ ) { %>
                     <div class="inbox-item">
-                        <%- include('partials/cards/frontBack', { card : props.flashcards[i], topCard : true }) %>
+                        <%- include('partials/cards/card', { card : props.flashcards[i], topCard : true }) %>
                         <div data-id="<%= props.flashcards[i]._id %>" class="card-buttons">
                             <i class="bx bxs-send card-send" onclick="cardSend(this)"></i>
                         </div>
