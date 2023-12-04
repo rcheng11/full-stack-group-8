@@ -136,21 +136,25 @@ app.get("/profile", function(req, res){
         }
 
         // Checks streak
-        const lastLogin = new Date(props.userStats.lastLogin)
-        const today = new Date()
-        const yesterday = new Date(today)
+        let lastLogin = props.userStats.lastLogin
+        let today = new Date()
+        let yesterday = new Date(today)
         yesterday.setDate(today.getDate() - 1)
 
-        if (lastLogin && lastLogin.toDateString() === yesterday.toDateString()) {
+        if (lastLogin.toDateString() === yesterday.toDateString()) {
           props.userStats.streak += 1
-        } else {
+        }
+        else if(today.toDateString() === lastLogin.toDateString()){
+          props.userStats.streak = props.userStats.streak
+        }
+        else{
           props.userStats.streak = 1
         }
 
         props.userStats.lastLogin = today;
 
-        return user.save().then((savedUser) => {
-          res.render("profile.ejs", { props });
+        user.save().then((savedUser) => {
+          res.render("profile.ejs", props=props);
         })
       }
   })
