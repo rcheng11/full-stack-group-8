@@ -104,3 +104,6 @@ body{
     padding: 10px;
     font-size: 24px;
 }
+#profile-trigger a:visited {
+    color: #818181;
+}

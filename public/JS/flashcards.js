@@ -33,7 +33,7 @@ function animate_fc_exit(flashcard, direction){
             }
         }
     }
-    flashcard.animate(props, options=opts, duration=1000)
+    flashcard.animate(props, options=opts, duration=650)
 }
 function animate_fc_enter(flashcard, direction){
     $(flashcard).show()
@@ -68,7 +68,7 @@ function animate_fc_enter(flashcard, direction){
             }
         }
     }
-    flashcard.animate(props, options=opts)
+    flashcard.animate(props, options=opts, duration=650)
 }
 
 // DECK BUTTONS
