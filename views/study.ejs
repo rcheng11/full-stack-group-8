@@ -19,10 +19,8 @@
             <!-- FLASH CARD LIST -->
             <div class="flashcard-list">
             <% for( let i = 0; i < props.flashcards.length; i++ ) { %>
-                <% if (props.flashcards[i].type == "frontBack") { %>
-                    <% let isTopCard = i == 0 %>
-                    <%- include('partials/cards/frontBack', {card: props.flashcards[i], topCard: isTopCard}) %>
-                <% } %>
+                <% let isTopCard = i == 0 %>
+                <%- include('partials/cards/card', {card: props.flashcards[i], topCard: isTopCard}) %>
             <% } %>
             </div>
             <!-- BUTTONS -->

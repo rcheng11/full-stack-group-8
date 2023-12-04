@@ -22,10 +22,9 @@
     <div class="collection-container">
         <% for( let i = 0; i < props.flashcards.length; i++ ) { %>
             <div class="collection-item">
-                <%- include('partials/cards/frontBack', { card : props.flashcards[i], topCard : true }) %>
+                <%- include('partials/cards/card', { card : props.flashcards[i], topCard : true }) %>
                 <div data-id="<%= props.flashcards[i]._id %>" class="card-buttons">
                     <i class="bx bxs-trash card-delete" onclick="cardDelete(this)"></i>
-                    <i class="bx bxs-edit card-edit" onclick="triggerEdit(this)"></i>
                 </div>
             </div>
         <% } %>

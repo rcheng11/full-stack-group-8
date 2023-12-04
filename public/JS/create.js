@@ -53,6 +53,14 @@ $("#frontBack-front, #frontBack-back").on("keypress", function(e) {
         createCard("#create-frontBack", "frontBack")
     }
 })
+$("#fillIn-submit").click(function() {
+    createCard("#create-fillIn", "fillIn")
+})
+$("#fillin-content").on("keypress", function(e) {
+    if(e.which == 13){
+        createCard("#create-fillIn", "fillIn")
+    }
+})
 
 // CREATE HINTS AND FILL INS
 
@@ -71,4 +79,7 @@ $("#frontBack-front").on("input", function(){
 })
 $("#frontBack-back").on("input", function(){
     $("#frontBack-exBack").html($("#frontBack-back").val())
+})
+$("#fillin-content").on("input", function() {
+    $("#fillin-ex").html(generateFillInHTML($("#fillin-content").val()))
 })

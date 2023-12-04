@@ -117,6 +117,9 @@ h1 {
 .profile-data{
     text-align: left;
 }
+.profile-data p{
+    width: 20rem;
+}
 label {
     color: white;
     background-color: black;

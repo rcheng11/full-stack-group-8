@@ -147,8 +147,30 @@ function validateFillIn(e){
         $(e).removeClass("fill-in-wrong")
         $(e).addClass("fill-in-correct")
     }
+    else if($(e).html() == "???"){
+        $(e).html($(e).data("answer"))
+        $(e).css("width", `${Math.min(Math.max($(e).html().length * 0.7, 2), 10)}rem`)
+        $(e).removeClass("fill-in-wrong")
+        $(e).addClass("fill-in-correct")
+    }
     else{
         $(e).removeClass("fill-in-correct")
         $(e).addClass("fill-in-wrong")
     }
+}
+// FILL IN CONTENT GENERATOR
+function generateFillInHTML(str){
+    let output = ""
+    let values = str.split(";;")
+
+    for(let i = 0; i < values.length; i++){
+        if(i%2 == 0){
+            output += values[i]
+        }
+        else{
+            output += `<span class="fill-in-blank" data-answer="${values[i]}" oninput="validateFillIn(this)" contenteditable></span>`
+        }
+    }
+
+    return `<div class="fill-in-contents">${output}</div>`
 }

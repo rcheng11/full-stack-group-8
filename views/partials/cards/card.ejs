@@ -1,0 +1,29 @@
+<% let shown = "in-deck" %>
+<% if (topCard == true) { %>
+    <% shown = "shown" %>
+<% } %>
+<% if (card.type == "frontBack") { %>
+    <div class="flashcard flashcard-style-normal <%= shown %>">
+        <div class="flashcard-contents">
+            <div class="flashcard-front">
+                <%= card.content.front %>
+            </div>
+            <div class="flashcard-back hidden">
+                <%= card.content.back %>
+            </div>
+        </div>
+    </div>
+<% } else if (card.type == "fillIn") { %>
+    <div class="fill-in-card flashcard-style-normal <%= shown %>">
+        <% let values = card.content.fillInContent.split(";;") %>
+        <div class="fill-in-contents">
+            <% for( let i = 0; i < values.length; i++ ) { %>
+                <% if(i%2 == 0){ %>
+                   <%= values[i] %>
+                <% } else{ %>
+                    <span class="fill-in-blank" data-answer='<%= values[i]%>' oninput="validateFillIn(this)" contenteditable></span>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+<% } %>
