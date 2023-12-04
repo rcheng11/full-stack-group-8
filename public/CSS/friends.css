@@ -74,7 +74,6 @@ h1 {
     display: flex;
     justify-content: start;
     flex-direction: column;
-    background-color: black;
 }
 .profile-container{
     display: flex;
@@ -84,6 +83,10 @@ h1 {
     align-items: center;
     justify-content: center;
     color: white;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    padding: 15px;
+    border-radius: 10px;
 }
 .profile-container:hover{
     background-color: rgb(32, 32, 32);
@@ -117,10 +120,15 @@ h1 {
 .profile-data{
     text-align: left;
 }
+
+h1 {
+    display: inline-block;
+}
+
 .profile-data p{
     width: 20rem;
 }
-label {
+.label-box {
     color: white;
     background-color: black;
     border-radius: 5px;
@@ -128,7 +136,16 @@ label {
 }
 
 h1 {
-    color: white;
     display: inline-block;
-    background-color: black;
+}
+
+.label-box {
+    color: white;
+    background: transparent;
+    border: 2px solid gray;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 0px 5px;
 }
